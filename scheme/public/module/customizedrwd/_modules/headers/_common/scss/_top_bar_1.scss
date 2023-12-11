@@ -55,7 +55,6 @@ $top-bar-basket-icon-color: $top-bar-icon-color;
 
 .top_bar {
   .top_bar_inner_wrapper {
-    border-bottom: $border;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -183,18 +182,6 @@ $top-bar-basket-icon-color: $top-bar-icon-color;
             display: flex;
             align-items: center;
             justify-content: center;
-            &:not(:first-child) {
-              &:before {
-                content: " ";
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 1px;
-                height: 25px;
-                background-color: $colorLineBorder;
-              }
-            }
 
             &.quick-cart {
               .helper-cart-left-bracket {

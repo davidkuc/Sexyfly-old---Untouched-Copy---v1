@@ -4,6 +4,11 @@
 @import "../_common/scss/_sticky_header.scss";
 
 #header.mod-header-3 {
+
+  #mobile-open-contact {
+    display:none;
+  }
+
   .mobile-search {
     height: 100px;
     padding: 18px 15px 15px;
@@ -17,19 +22,32 @@
       padding: $header-middle-content-padding-mid 0px;
 
       .header_middle_content_inner_wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: block;
+
+        .header_middle_content_inner_wrapper_block_1 {
+          display:flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+
+        .header_middle_content_menu_button_container {
+          display:flex;
+          font-size: 0.8rem;
+        }
 
         .header_middle_content_logo {
-          margin-left: 25px;
-          width:33%;
-          max-width: 300px;
-          & img {
-            max-width: 100%;
-            max-height: 300px;
-          }
+          font-family: playlistscript;
+          font-size: 30px;
         }
+
+        .header_middle_content_menu_button_account_cart {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 45px;
+        }
+
         .header_middle_content_quick_cart_wrapper{
           margin-right: 25px;
         }

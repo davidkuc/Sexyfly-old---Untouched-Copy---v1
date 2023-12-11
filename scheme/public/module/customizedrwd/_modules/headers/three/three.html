@@ -4,32 +4,34 @@
 	{/IF}
 	{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/mobile-search.html"}
 	<div class="header_inner_wrapper">
-		<section class="top_bar">
-			<div class="sky-container">
-				<div class="top_bar_inner_wrapper">
-					<div class="top_bar_item left">
-						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-left.html"}
-					</div>
-					<div class="top_bar_item right">
-						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-right.html"}
-					</div>
-				</div>
-			</div>
-		</section>
 		<section class="header_middle_content">
 			<div class="sky-container">
 				<div class="header_middle_content_inner_wrapper">
-					<a href="/" class="header_middle_content_logo">
-						<img src="{$MODULE.children.common_shop_logo[0].props.preview}" alt="{IF $MODULE.children.logo_alt[0].props.value} {$MODULE.children.logo_alt[0].props.value} {ELSE} {$LOGO_ALT} {/IF}" />
-					</a>
-					<ul class="mobile-actions">
-						<li id="mobile-open-search">
-							<i class="fa fa-search"></i>
-						</li>
-						<li id="mobile-open-menu">
-							<i class="fa fa-bars"></i>
-						</li>
-					</ul>
+					<div class="header_middle_content_inner_wrapper_block_1">			
+						<div class="header_middle_content_menu_button_container" id="mobile-open-menu">
+							<div>MENU</div>
+							<div>
+								<img src="/view/_custom/z_pn494/img/header/menu-alt-left-regular-24.png" width="16" height="16">
+							</div>
+						</div>
+						<a href="/">
+							<div class="header_middle_content_logo">
+								Sexyfly
+							</div>	
+						</a>
+						<div class="header_middle_content_menu_button_account_cart">
+							<section class="top_bar">
+									<div class="top_bar_inner_wrapper">
+										<div class="top_bar_item left">
+											{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-left.html"}
+										</div>
+										<div class="top_bar_item right">
+											{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-right.html"}
+										</div>
+									</div>
+							</section>		
+						</div>
+					</div>	
 					<div class="header_middle_content_searchbox search-box {IF $TURN_OFF_SALES}search-box-right{/IF}">
 						<form method="GET" action="/category/#top">
 							<div class="header_middle_content_searchbox_input_wrapper">
