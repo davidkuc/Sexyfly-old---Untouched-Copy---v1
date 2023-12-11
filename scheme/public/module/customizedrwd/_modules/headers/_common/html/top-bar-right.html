@@ -55,9 +55,9 @@
         {IF !$TURN_OFF_SALES}
             <li {IF $CY_DATA=="TRUE"}cy-data="headerCart"{/IF} class="top_bar_item_list_item quick-cart" id="mobile-open-cart">
                 <div class="top_bar_item_list_item_cart_icon">
-                    <span class="helper-icon">
-                        <i class="fa fa-shopping-basket"></i>
-                    </span>
+                    <div>
+                        <img src="/view/_custom/z_pn494/img/header/shopping-bag-regular-24.png" width="16" height="16">
+                    </div>
                     <span class="helper-text">
                         {$L_CART}
                     </span>
@@ -65,9 +65,6 @@
                         <span class="helper-cart-left-bracket">(</span>
                         <span class="core_quickCartAmount">{$CART_AMOUNT}</span>
                         <span class="helper-cart-right-bracket">)</span>
-                    </span>
-                    <span class="helper-arrow">
-                        <i class="fa fa-chevron-down"></i>
                     </span>
                 </div>
                 {IF $CONTROLER != 'cart'}
