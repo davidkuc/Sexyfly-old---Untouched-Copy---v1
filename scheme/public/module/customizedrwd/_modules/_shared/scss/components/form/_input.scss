@@ -1,0 +1,38 @@
+.input-field {
+    height: $form-item-height;
+    font-size: $form-item-font-size;
+    font-weight: $font-weight-input;
+    border: $border-width-input $border-style-input $border-color-input;
+    border-radius: $border-radius-input;
+    padding: 0 $form-item-padding;
+    &:hover, &:focus {
+        border-color: $mainColor;
+    }
+}
+
+
+.input-field {
+
+    &:hover, &:focus {
+      border: 1px solid $mainColor;
+      @include transition(border-color 0.2s ease-in-out);
+    }
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: rgba($fontColor,6/10);
+      line-height: normal;
+    }
+    &::-moz-placeholder {
+      font-weight: 100;
+      color: rgba($fontColor,6/10);
+    }
+    &:-ms-input-placeholder {
+      font-weight: 100;
+      color: rgba($fontColor,6/10);
+      line-height: normal;
+    }
+    &:-moz-placeholder {
+      font-weight: 100;
+      color: rgba($fontColor,6/10);
+    }
+  }

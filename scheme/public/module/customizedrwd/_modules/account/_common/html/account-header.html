@@ -1,0 +1,70 @@
+<div class="col-xs-12 col-sm-3 account-header">
+  <div class="account-header-wrapper">
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/youraccount/">
+              <li class="{IF $CONTROLER == 'youraccount'}active{/IF}">
+                <span class="title">{$L_YOURACCOUNT}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/register/mode/profile/">
+              <li class="{IF $CONTROLER == 'register' && $PARENT == 'register'}active{/IF}">
+                <span class="title">{$L_EDIT_DATA}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/register/emailchange/1/">
+              <li class="{IF $CONTROLER == 'register' && $PARENT == 'account'}active{/IF}">
+                <span class="title">{$L_CHANGE_EMAIL}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/passrecover/">
+              <li class="{IF $CONTROLER == 'passrecover'}active{/IF}">
+                <span class="title">{$L_CHANGE_PASSWORD}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/orders/">
+              <li class="{IF $CONTROLER == 'orders'}active{/IF}">
+                <span class="title">{$L_ORDERS}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+      <div class="account-header_item">
+        <section class="heading inside">
+          <ul class="nav">
+            <a href="/ticket/">
+              <li class="{IF $CONTROLER == 'ticket'}active{/IF}">
+                <span class="title">{$L_TICKETS}</span>
+              </li>
+            </a>
+          </ul>
+        </section>
+      </div>
+  </div>
+</div>

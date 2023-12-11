@@ -1,0 +1,32 @@
+.header_middle_content_searchbox {
+  flex:1;
+  max-width: 462px;
+  position: relative;
+  @media(max-width:767px){
+    display: none;
+  }
+  form{
+    width:100%;
+    display: flex;
+    .header_middle_content_searchbox_input_wrapper{
+      flex-basis: 100%;
+      .input-field {
+        margin: 0;
+        border-right: 0;
+        @include border-top-right-radius(0);
+        @include border-bottom-right-radius(0);
+      }
+    }
+    .header_middle_content_searchbox_button_wrapper{
+      & .btn {
+        padding: 0 35px;
+        @include border-top-left-radius(0);
+        @include border-bottom-left-radius(0);
+        @media(max-width:860px){
+          padding:0 15px;
+        }
+      }
+    }
+  }
+  @import "_quick_search_2.scss";
+}

@@ -1,0 +1,120 @@
+<div class="top_bar_item_list_wrapper">
+  <ul class="top_bar_item_list">
+    {IF $MODULE.children.header_email[0].props.value || $SHOP_BASIC_DATA.mainShopEmail}
+    <li data-type="email" class="top_bar_item_list_item hidden-on-mobile" id="top_bar_item_list_item_email">
+        {IF $MODULE.children.header_email[0].props.value}
+          <a href="mailto:{$MODULE.children.header_email[0].props.value}">
+            <div class="top_bar_item_list_item_icon" id="top_bar_item_list_item_email_icon">
+              <span class="helper-icon">
+                <i class="fa fa-at"></i>
+              </span>
+            </div>
+            <span class="helper-text">
+              {$MODULE.children.header_email[0].props.value}
+            </span>
+          </a>
+          {ELSEIF $SHOP_BASIC_DATA.mainShopEmail}
+            <a href="mailto:{$SHOP_BASIC_DATA.mainShopEmail}">
+              <div class="top_bar_item_list_item_icon" id="top_bar_item_list_item_email_icon">
+                <span class="helper-icon">
+                  <i class="fa fa-at"></i>
+                </span>
+              </div>
+              <span class="helper-text">
+                {$SHOP_BASIC_DATA.mainShopEmail}
+              </span>
+            </a>
+          {/IF}
+        </li>
+    {/IF}
+    {IF $MODULE.children.header_phone[0].props.value || $SHOP_BASIC_DATA.ownerPhoneNumber}
+      <li data-type="phone" class="top_bar_item_list_item hidden-on-mobile" id="top_bar_item_list_item_phone">
+          {IF $MODULE.children.header_phone[0].props.value}
+            <a href="tel:{$MODULE.children.header_phone[0].props.value}">
+              <div class="top_bar_item_list_item_icon" id="top_bar_item_list_item_phone_icon">
+                <span class="helper-icon">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </div>
+              <span class="helper-text">
+                {$MODULE.children.header_phone[0].props.value}
+              </span>
+            </a>
+          {ELSEIF $SHOP_BASIC_DATA.ownerPhoneNumber}
+            <a href="tel:{$SHOP_BASIC_DATA.ownerPhoneNumber}">
+              <div class="top_bar_item_list_item_icon" id="top_bar_item_list_item_phone_icon">
+                <span class="helper-icon">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </div>
+              <span class="helper-text">
+                {$SHOP_BASIC_DATA.ownerPhoneNumber}
+              </span>
+            </a>
+          {/IF}
+      </li>
+    {/IF}
+    {LOOP FROM=$MODULE.children.common_sm[0].children VALUE=SOCIAL}
+      {IF $SOCIAL.props.value}
+        <li data-type="social-{$SOCIAL.key}" class="top_bar_item_list_item top_bar_item_list_item_social_media hidden-on-mobile">
+            <a href="{$SOCIAL.props.value}" rel="nofollow" target="_blank">
+                <div class="top_bar_item_list_item_social_media">
+                  {IF $SOCIAL.key == 'sm_facebook'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_fb">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_instagram'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_ig">
+                    <i class="fa fa-instagram"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_youtube'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_yt">
+                    <i class="fa fa-youtube"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_tiktok'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_tktk">
+                    <i class="fa fa-tiktok"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_googleplus'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_gplus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_snapchat'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_snap">
+                    <i class="fa fa-snapchat-ghost"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_twitter'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_twitt">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                  {ELSEIF $SOCIAL.key == 'sm_pinterest'}
+                  <span class="top_bar_item_list_item_social_media_icon" id="top_bar_item_list_item_social_media_icon_pinterest">
+                    <i class="fa fa-pinterest"></i>
+                  </span>
+                  {ELSEIF
+                    $SOCIAL.key == 'sm_custom_link1' || $SOCIAL.key == 'sm_custom_link2'
+                    || $SOCIAL.key == 'sm_custom_link3' || $SOCIAL.key == 'sm_custom_link4'
+                    || $SOCIAL.key == 'sm_custom_link5'}
+                    <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+                  {/IF}
+                </div>
+            </a>
+        </li>
+      {/IF}
+    {/LOOP}
+    {IF ($MODULE.children.header_email[0].props.value || $SHOP_BASIC_DATA.mainShopEmail) || ($MODULE.children.header_phone[0].props.value || $SHOP_BASIC_DATA.ownerPhoneNumber) || (!empty($MODULE.children.common_sm[0].children))}
+      <li id="mobile-open-contact" class="top_bar_item_list_item top_bar_item_list_item_contact hidden-on-desktop">
+          <a href="#">
+            <div class="top_bar_item_list_item_item_social_envelope_icon">
+              <span class="helper-icon">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <span class="helper-arrow">
+                <i class="fa fa-chevron-down"></i>
+              </span>
+            </div>
+          </a>
+      </li>
+    {/IF}
+  </ul>
+</div>

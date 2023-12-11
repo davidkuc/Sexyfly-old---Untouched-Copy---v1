@@ -1,0 +1,30 @@
+{INCLUDE file="scheme/public/header.html"}
+
+<section class="news mod-news-1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="heading inside">
+                    <ul>
+                        <li>
+                            <h1 class="title">{$L_UNSUBSCRIBE_NEWSLETTER}</h1>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                    <form class="form-center unsubscribe-newsletter">
+                        <label class="title-section">{$L_INPUT_EMAIL}:</label>
+                        <br>
+                        <input class="input-field" name="email" type="email">
+                        <button class="btn btn-primary btn-lg" type="submit">{$L_BUTTON_UNSUBSCRIBE}</button>
+                    </form>
+                    <div class="unsubscribe-message text-center"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{INCLUDE file="scheme/public/footer.html"}

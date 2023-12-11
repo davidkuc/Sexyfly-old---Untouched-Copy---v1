@@ -1,0 +1,27 @@
+<div class="sub-product">
+    <div class="sub-product_thumb">
+        {IF !$PRODUCT.url}
+            <img src="{$PRODUCT.img}_260.jpg" alt="">
+        {ELSE}
+        <a href="{$PRODUCT.url}">
+            <img src="{$PRODUCT.img}_260.jpg" alt="">
+        </a>
+        {/IF}
+    </div>
+    <div class="sub-product_dscr">
+        <div class="sub-product_dscr_name">
+            <span >{$PRODUCT.name}</span>
+        </div>
+        <div class="sub-product_dscr_price price-special">
+            <span class="core_priceFormat" data-price="{$PRODUCT.price}" data-tax="{$PRODUCT.tax}" data-price-type="{$PRICE_TYPE}|show_type">{$PRODUCT.price}</span>
+            {IF $PRICE_TYPE === 'netto_brutto'}
+            <span class="sub_product_brutto_price core_priceFormat" data-price="{$PRODUCT.price}" data-tax="{$PRODUCT.tax}" data-price-type="brutto|show_type">{$PRODUCT.price}</span>
+            {/IF}
+        </div>
+        <div class="sub-product_dscr_amount">
+            {$L_AMOUNT}:
+            <span>{$PRODUCT.amount} </span>
+            <span>{$PRODUCT.unit}</span>
+        </div>
+    </div>
+</div>

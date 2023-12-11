@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="35" viewBox="0 0 55 35">
+  <g id="metody-platnosci-płatnosc-przy-odbiorze" transform="translate(7 -0.93)">
+    <rect id="_55x35" data-name="55x35" width="55" height="35" transform="translate(-7 0.93)" fill="#fff" opacity="0"/>
+    <g id="Group_500" data-name="Group 500" transform="translate(4 2.273)">
+      <path id="Path_1032" data-name="Path 1032" d="M1,26.972l4.12-1.49a1.446,1.446,0,0,1,1.85.869l3.161,7.9a1.465,1.465,0,0,1-.87,1.882L3.672,38.16" transform="translate(-0.275 -7.229)" fill="none" stroke="#3a3a3c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_1033" data-name="Path 1033" d="M16.719,35.431,22.5,36.965a5.9,5.9,0,0,0,3.868-.294l11.046-4.816a2.084,2.084,0,0,0,1-2.923,2.108,2.108,0,0,0-2.647-.92l-5.59,2.007" transform="translate(-4.596 -7.904)" fill="none" stroke="#3a3a3c" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_1034" data-name="Path 1034" d="M12.359,25.1l.524-.272a7.37,7.37,0,0,1,5.968-.364L25.381,26.9a2.348,2.348,0,0,1-1.576,4.422l-4.356-1.444" transform="translate(-3.398 -6.845)" fill="none" stroke="#3a3a3c" stroke-linecap="round" stroke-width="1.5"/>
+      <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(9 1.657)" fill="none" stroke="#3a3a3c" stroke-width="1.5">
+        <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+        <circle cx="5.5" cy="5.5" r="4.75" fill="none"/>
+      </g>
+      <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(21 6.657)" fill="none" stroke="#3a3a3c" stroke-width="1.5">
+        <circle cx="4" cy="4" r="4" stroke="none"/>
+        <circle cx="4" cy="4" r="3.25" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

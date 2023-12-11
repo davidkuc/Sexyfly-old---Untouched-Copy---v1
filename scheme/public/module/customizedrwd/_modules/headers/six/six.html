@@ -1,0 +1,216 @@
+<header id="header" class="mod-header-6 {IF ($SHOP_TEST && $CONTROLER == 'cart') || ($SHOP_TEST && $WRONG_EMAIL)}shop-test-margin{/IF}">
+	{IF $SHOW_COOKIE_INFO}
+		{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/cookies.html"}
+	{/IF}
+	<div class="header_inner_wrapper">
+		{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/mobile-search.html"}
+		<section class="top_bar">
+			<div class="sky-container">
+				<div class="top_bar_inner_wrapper">
+					<div class="top_bar_item left">
+						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-left.html"}
+					</div>
+					<div class="top_bar_item right">
+						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-right.html" CY_DATA="TRUE"}
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="header_middle_content">
+			<div class="sky-container">
+				<div class="header_middle_content_inner_wrapper">
+					<a href="/" class="header_middle_content_logo">
+						<img src="{$MODULE.children.common_shop_logo[0].props.preview}" alt="{IF $MODULE.children.logo_alt[0].props.value} {$MODULE.children.logo_alt[0].props.value} {ELSE} {$LOGO_ALT} {/IF}" />
+					</a>
+					<ul class="mobile-actions">
+						<li id="mobile-open-search">
+							<i class="fa fa-search"></i>
+						</li>
+						<li id="mobile-open-menu">
+							<i class="fa fa-bars"></i>
+						</li>
+					</ul>
+					<div class="header_middle_content_searchbox search-box {IF $TURN_OFF_SALES}search-box-right{/IF}">
+						<form method="GET" action="/category/#top">
+							<div class="header_middle_content_searchbox_input_wrapper">
+								<input cy-data="headerSearch" class="input-field {IF $SEARCH_QUICK_ACTIVE}core_quickSearchAjax{/IF}" type="text" name="q" value="{$SEARCH_STRING}" placeholder="{$L_SEARCH_IN_SHOP}" autocomplete="off" {IF $DEBUG}data-ajax-blur="true"{/IF} />
+								{IF $SEARCH_DESC_ACTIVE}
+									<input type="hidden" name="desc" value="1" />
+								{/IF}
+							</div>
+							<div class="header_middle_content_searchbox_button_wrapper">
+								<input type="submit" value="{$L_SEARCH}" class="btn btn-primary btn-block" />
+								{IF $SEARCH_QUICK_ACTIVE}
+									{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/quick-search.html"}
+								{/IF}
+							</div>
+						</form>
+					</div>
+					{IF !$TURN_OFF_SALES}
+						<div class="header_middle_content_quick_cart_wrapper quick-cart">
+							<a href="/cart/" class="header_middle_content_quick_cart" rel="nofollow">
+								<div class="header_middle_content_quick_cart_price price"><span class="core_quickCartTotalPrice core_priceFormat" data-price="{$CART_SUM}">{$CART_SUM}</span></div>
+								<i class="fa fa-shopping-basket"></i>
+								<div class="header_middle_content_quick_cart_counter counter"><span class="core_quickCartAmount">{$CART_AMOUNT}</span></div>
+							</a>
+							{IF $CONTROLER != 'cart'}
+								<div class="dropdown dropdown-quick-cart">
+									{INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/quick-cart.html"}
+								</div>
+							{/IF}
+						</div>
+					{/IF}
+				</div>
+			</div>
+		</section>
+		<section class="header_bottom_content">
+			<div class="sky-container">
+
+			<div class="menu menu-calculate smart-menu" data-action="inline">
+				<ul class="header_bottom_content_list" >
+					<li class="header_bottom_content_list_item vertical-menu" {IF $CONTROLER != 'index' && $CONTROLER != 'cart'}id="open-header-left-menu"{/IF}>
+						{IF $CONTROLER != 'index'}
+							<a href="/">
+								<i class="fa fa-bars"></i> {$L_ALL_CATEGORIES}
+							</a>
+						{ELSE}
+							<a href="#" class="disabled">
+								<i class="fa fa-bars"></i> {$L_ALL_CATEGORIES}
+							</a>
+						{/IF}
+					</li>
+					{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/main-menu.html"}
+					<li class="header_bottom_content_list_item  hamburger {IF $MENU_SHOW_TYPE == 'click'}click{/IF}">
+						<a href="#">
+							<i class="fa fa-bars"></i>
+						</a>
+						<div class="dropdown">
+							<div class="row">
+								<div class="col-xs-12 smart-menu">
+									<ul class="hambureger-elements"></ul>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			{IF $CONTROLER != 'cart'}
+				<section class="header-bottom {IF $CONTROLER != 'index'}slide-down{/IF}">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-3">
+								<div class="vertical-menu">
+									<div class="vertical-menu-content">
+										<ul>
+											{IF $MODULE.children.header_group_vertical[0].props.headerVerticalMenuAllCategories == 'true'}
+												{LOOP FROM=$CATS VALUE=MENU_ELEMENT INDEX=INDEX}
+													{IF $INDEX == 13 && $CONTROLER == 'index'}
+														<div class="show-more">
+															<span>{$L_SHOW_MORE_CATEGORIES} <i class="fa fa-caret-down"></i></span>
+														</div>
+													{/IF}
+													<li>
+														<a href="{$MENU_ELEMENT.cat_url}">
+															<span>{$MENU_ELEMENT.cat_name}</span>
+														</a>
+														{IF count($MENU_ELEMENT.subcats) > 0}
+															<div class="sub-categories items-col-{IF count($MENU_ELEMENT.subcats) == 1}1{ELSEIF count($MENU_ELEMENT.subcats) == 2}2{ELSE}3{/IF}">
+																<div class="sub-categories-content">
+																	<div class="row">
+																		{LOOP FROM=$MENU_ELEMENT.subcats VALUE=SUB_CATS}
+																			<div class="{IF count($MENU_ELEMENT.subcats) == 1}col-xs-12{ELSEIF count($MENU_ELEMENT.subcats) == 2}col-xs-6{ELSE}col-xs-4{/IF}">
+																				<div class="cat-title">
+																					<a href="{$SUB_CATS.cms_url}">{$SUB_CATS.cat_name}</a>
+																				</div>
+																				{IF $SUB_CATS.subcats}
+																					<ul>
+																						{LOOP FROM=$SUB_CATS.subcats VALUE=SUB_SUB_CATS}
+																							<li>
+																								<a href="{$SUB_SUB_CATS.cms_url}">{$SUB_SUB_CATS.cat_name}</a>
+																							</li>
+																						{/LOOP}
+																					</ul>
+																				{/IF}
+																			</div>
+																		{/LOOP}
+																	</div>
+																</div>
+															</div>
+														{/IF}
+													</li>
+												{/LOOP}
+											{ELSE}
+												{LOOP FROM=$MODULE.children.header_group_vertical[0].children VALUE=MENU_ELEMENT INDEX=INDEX}
+													{IF $INDEX == 13 && $CONTROLER == 'index'}
+														<div class="show-more">
+															<span>{$L_SHOW_MORE_CATEGORIES} <i class="fa fa-caret-down"></i></span>
+														</div>
+													{/IF}
+													<li>
+														<a {IF !$MENU_ELEMENT.props.parent_href || $MENU_ELEMENT.props.parent_href == 'http://'}{ELSE}href="{$MENU_ELEMENT.props.parent_href}"{/IF}>
+															<span>{$MENU_ELEMENT.props.name}</span>
+														</a>
+														{IF count($MENU_ELEMENT.subcats) > 0}
+															<div class="sub-categories items-col-{IF count($MENU_ELEMENT.subcats) == 1}1{ELSEIF count($MENU_ELEMENT.subcats) == 2}2{ELSE}3{/IF}">
+																<div class="sub-categories-content">
+																	<div class="row">
+																		{LOOP FROM=$MENU_ELEMENT.subcats VALUE=SUB_CATS}
+																			<div class="{IF count($MENU_ELEMENT.subcats) == 1}col-xs-12{ELSEIF count($MENU_ELEMENT.subcats) == 2}col-xs-6{ELSE}col-xs-4{/IF}">
+																				<div class="cat-title">
+																	<a href="{$SUB_CATS.cms_url}">{$SUB_CATS.cat_name}</a>
+																</div>
+																				{IF $SUB_CATS.subcats}
+																					<ul>
+																						{LOOP FROM=$SUB_CATS.subcats VALUE=SUB_SUB_CATS}
+																							<li>
+																								<a href="{$SUB_SUB_CATS.cms_url}">{$SUB_SUB_CATS.cat_name}</a>
+																							</li>
+																						{/LOOP}
+																					</ul>
+																				{/IF}
+																			</div>
+																		{/LOOP}
+																	</div>
+																</div>
+															</div>
+														{/IF}
+													</li>
+												{/LOOP}
+											{/IF}
+										</ul>
+									</div>
+								</div>
+							</div>
+							{IF $CONTROLER == 'index'}
+								<div class="col-xs-9">
+									<div class="slider">
+										<div class="carousel slider-carousel" data-timeout="{$MODULE.viewOptions.slideShowInMs}">
+											{LOOP FROM=$MODULE.children.slider_group_header[0].children VALUE=SLIDE INDEX=INDEX}
+												<div class="item">
+													<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+													{IF $SLIDE.props.link && $SLIDE.props.link != ""}
+														<a href="{$SLIDE.props.link}">
+													{/IF}
+													<img {IF $INDEX == 1}src="{$SLIDE.props.preview}"{ELSE}data-src="{$SLIDE.props.preview}" class="owl-lazy"{/IF} alt="{$SLIDE.props.name}" onLoad="imageLoaded(this{IF $SLIDE.props.link && $SLIDE.props.link != ""},'link'{/IF})" />
+													{IF $SLIDE.props.link && $SLIDE.props.link != ""}
+														</a>
+													{/IF}
+												</div>
+											{/LOOP}
+										</div>
+									</div>
+								</div>
+							{/IF}
+						</div>
+					</div>
+				</section>
+			{/IF}
+			</div>
+		</section>
+		<section id="sticky-header" data-sticky="{$IS_STICKY}">
+			<div class="sky-container">
+				{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/sticky-header.html"}
+			</div>
+		</section>
+	</div>
+</header>

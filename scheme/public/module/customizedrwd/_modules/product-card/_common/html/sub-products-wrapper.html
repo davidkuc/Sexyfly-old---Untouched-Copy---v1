@@ -1,0 +1,16 @@
+<section class="sub-products-wrapper ">
+    <div class="{IF $SECOND !='TRUE'}container-fluid{/IF}">
+        <section class="heading inside">
+            <ul>
+                <li class="active">
+                    <span class="title">{$L_SUB_PRODUCTS_HEADER}</span>
+                </li>
+            </ul>
+        </section>
+        <div class="sub-products-container {IF $SECOND==='TRUE'}second-mod{/IF}" >
+            {LOOP FROM=$SUB_PRODUCTS VALUE=PRODUCT KEY=TYPE INDEX=INDEX  }
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/options/sub-product.html" }
+            {/LOOP}
+        </div>
+    </div>
+</section>

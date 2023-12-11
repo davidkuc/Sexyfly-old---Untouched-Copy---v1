@@ -1,0 +1,60 @@
+<div class="inline_nav">
+    <ul class="inline_nav_list">
+        <li class="inline_nav_list_item search">
+            <span class="helper-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            {IF $CY_TE=="TRUE"}
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/search-dropdown-1.html" CY_DATA="TRUE" }
+            {ELSE}{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/search-dropdown-1.html" }
+            {/IF}
+        </li>
+        {IF count($LANGS) > 1}
+        <li class="inline_nav_list_item">
+            <span class="helper-icon">
+                <i class="fa fa-globe"></i>
+            </span>
+            <div class="dropdown">
+                <ul>
+                    {LOOP FROM=$LANGS VALUE=LANG}
+                        <li class="{IF $LANG.KEY == $LANG}active{/IF}">
+                            <a href="{$LANG.URL}">{$LANG.NAME} <img src="/{$TEMPLATE}/img/ico_lang/{$LANG.KEY}.png" class="icon-language-flag small" alt="" /></a>
+                        </li>
+                    {/LOOP}
+                </ul>
+            </div>
+        </li>
+        {/IF}
+        {IF count($CURRENCIES_ACTIVE) > 1}
+        <li class="inline_nav_list_item">
+            <span class="helper-icon">
+                <i class="fa fa-usd"></i>
+            </span>
+            <div class="dropdown">
+                <ul>
+                    {LOOP FROM=$CURRENCIES_ACTIVE VALUE=CURRENCY KEY=NAME}
+                        <li class="{IF $CURRENCY.selected}active{/IF}" data-select-currency-active>
+                            <a href="#" data-select-currency="{$NAME}|{$CURRENCY.sym}">{$NAME}</a>
+                        </li>
+                    {/LOOP}
+                </ul>
+            </div>
+        </li>
+        {/IF}
+        <li class="inline_nav_list_item">
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/user-menu.html" ONLY_ICONS="TRUE"}
+        </li>
+        {IF !$TURN_OFF_SALES}
+        <li class="inline_nav_list_item quick-cart">
+            <span class="helper-icon">
+                <i class="fa fa-shopping-basket"></i>
+            </span>
+            {IF $CONTROLER != 'cart'}
+            <div class="dropdown dropdown-quick-cart">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/quick-cart.html"}
+            </div>
+            {/IF}
+        </li>
+        {/IF}
+    </ul>
+</div>

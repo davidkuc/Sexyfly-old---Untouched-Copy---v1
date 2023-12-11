@@ -1,0 +1,189 @@
+@import "../../_shared/scss/_all.scss";
+@import "../_common/scss/_cookies.scss";
+@import "../_common/scss/_header.scss";
+@import "../_common/scss/_sticky_header.scss";
+
+#header.mod-header-4 {
+  .mobile-search {
+    height: 100px;
+    padding: 18px 15px 15px;
+    & form {
+      top: 10px;
+    }
+  }
+
+  .header_inner_wrapper {
+    .header_middle_content {
+      padding: $header-middle-content-padding-slim 0px;
+
+      .header_middle_content_inner_wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .header_middle_content_logo {
+          & img {
+            max-width: 285px;
+            max-height: 200px;
+          }
+        }
+
+        .header_middle_content_menu {
+          width:55%;
+          margin-left: 5%;
+          .menu {
+            position: static;
+
+            .header_middle_content_menu_list {
+              position: static;
+            }
+          }
+        }
+      }
+    }
+
+    .menu {
+
+      &.menu-calculate {
+      }
+      & ul {
+        padding: 0;
+        position: relative;
+
+        & li {
+          @import "../_common/scss/_menu_dropdown_click_3.scss";
+          @import "../_common/scss/_menu_dropdown_single_1.scss";
+          @import "../_common/scss/_menu_dropdown_full_3.scss";
+          @import "../_common/scss/_search_dropdown_1.scss";
+          @import "../_common/scss/_hamburger_dropdown_1.scss";
+        }
+      }
+
+      .header_middle_content_search_inner_wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+
+        a {
+          display: inline-block;
+        }
+      }
+
+      .header_middle_content_menu_list {
+        font-size: 0;
+
+        li {
+          display: inline-block;
+
+          & .dropdown {
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .header_middle_content_search.menu {
+      flex:1;
+      & .header_middle_content_search_inner_wrapper {
+        & .search {
+          & a {
+            display: inline-block;
+            line-height: 1.375; //22px;
+            font-weight: $fw500;
+            font-size: 1.143rem; // 16px;
+            text-decoration: none;
+            padding: 10px 15px;
+            color: $font-color;
+            cursor: pointer;
+
+            & .fa {
+              font-size: 10px;
+              position: relative;
+              top: -2px;
+
+              &.fa-search,
+              &.fa-bars {
+                font-size: 16px;
+                top: 0;
+              }
+            }
+          }
+
+          @import "../_common/scss/_menu_dropdown_1.scss";
+
+          &:hover {
+            & a {
+              color: $topMenuTextColorHover;
+            }
+
+            &:not(.click) {
+              & .dropdown {
+                @include opacity(1);
+                @include transition(all 0.2s ease-in-out 0.2s);
+                pointer-events: auto;
+                visibility: visible;
+                z-index: 2;
+              }
+            }
+          }
+
+          @import "../_common/scss/_menu_dropdown_click_3.scss";
+          @import "../_common/scss/_menu_dropdown_single_1.scss";
+          @import "../_common/scss/_menu_dropdown_full_3.scss";
+          @import "../_common/scss/_search_dropdown_1.scss";
+          @import "../_common/scss/_hamburger_dropdown_1.scss";
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #header.mod-header-4 {
+    .header_inner_wrapper {
+      #mobile-open-cart {
+        display: block;
+      }
+
+      .header_middle_content {
+        padding: 20px 0px;
+
+        .header_middle_content_inner_wrapper {
+          padding: 0px 5px;
+          justify-content: flex-start;
+
+          .header_middle_content_logo {
+            max-width:180px;
+            img {
+              max-width: 100%;
+              max-height: 200px;
+            }
+          }
+        }
+      }
+    }
+
+    & .mobile-search {
+      display: block;
+    }
+
+    & .menu {
+      display: none;
+    }
+  }
+
+  @import "../_common/scss/_mobile_menu_1.scss";
+
+  .swipe-panel {
+    & .swipe-panel-content.quick-cart {
+      & .dropdown {
+        @import "../_common/scss/_dropdown_quick_cart_1.scss";
+        min-width: 0 !important;
+        &.dropdown-quick-cart {
+          width: 300px;
+        }
+      }
+    }
+  }
+}

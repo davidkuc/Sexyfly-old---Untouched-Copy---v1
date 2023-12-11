@@ -1,0 +1,81 @@
+{IF $LOGGED_IN}
+  <div class="header_top_bar_social_user_icon">
+    <span class="helper-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    {IF $ONLY_ICONS != "TRUE"}
+      <span class="helper-text hidden-on-mobile">
+        {$L_MYACCOUNT}
+      </span> 
+      <span class="helper-arrow">
+        <i class="fa fa-chevron-down"></i>
+      </span>
+    {/IF}
+  </div>
+  <div class="dropdown">
+    <ul>
+      <li>
+        <a href="/youraccount/" rel="nofollow">{$L_YOURACCOUNT}</a>
+      </li>
+      {IF $USER_DISCOUNT}
+        <li>
+          <a href="#" class="core_showDiscountInfo" data-info="{$L_DISCOUNT_INFO}">
+            {$L_DISCOUNT} <strong>{$USER_DISCOUNT}</strong>% <i class="fa fa-info"></i>
+          </a>
+        </li>
+      {/IF}
+  {IF $LOYALTY_PROGRAM != 0}
+        <li>
+          <a href="#">
+            {$L_LOYALTY_POINT}: <strong>{$LOYALTY_POINTS}</strong>
+          </a>
+        </li>
+      {/IF}
+      <li>
+        <a href="/ticket/add/" rel="nofollow">{$L_ADD_TICKET}</a>
+      </li>
+      {IF $STORE_AMOUNT && $STORE_PRODUCT_IN_SHOP != 0}
+        <li>
+          <a href="/category/c/store/" rel="nofollow">{$L_STORE} <span>({$STORE_AMOUNT})</span></a>
+        </li>
+      {/IF}
+      <li id="menu-admin-login">
+        <a href="/admin" target="_blank" rel="nofollow">{$L_ADMIN_PANEL}</a>
+      </li>
+      <li>
+        <a href="/login/logout" rel="nofollow">{$L_LOGOUT}</a>
+      </li>
+    </ul>
+  </div>
+{ELSE}
+  <div class="header_top_bar_social_user_icon">
+    <span class="helper-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    {IF $ONLY_ICONS != "TRUE"}
+      <span class="hidden-on-mobile">
+        {$L_CUSTOMER_ZONE}
+      </span>
+      <span class="helper-arrow">
+        <i class="fa fa-chevron-down"></i>{/IF}
+      </span> 
+  </div>
+  <div class="dropdown">
+    <ul>
+      <li>
+        <a href="/login/">{$L_LOGIN2}</a>
+      </li>
+      <li>
+        <a href="/register/">{$L_REGISTER2}</a>
+      </li>
+      {IF $STORE_AMOUNT && $STORE_PRODUCT_IN_SHOP != 0}
+        <li>
+          <a href="/category/c/store/" rel="nofollow">{$L_STORE} <span>({$STORE_AMOUNT})</span></a>
+        </li>
+      {/IF}
+      <li>
+        <a href="/ticket/add/" rel="nofollow">{$L_ADD_TICKET}</a>
+      </li>
+    </ul>
+  </div>
+{/IF}

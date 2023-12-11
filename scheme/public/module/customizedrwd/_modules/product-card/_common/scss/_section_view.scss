@@ -1,0 +1,33 @@
+.product-card {
+  position:relative;
+  z-index: 2;
+  .payments-pragmago {
+    padding: 3px 0 !important;
+    img {
+      margin: 0 15px 0 -7px;
+    }
+    .btn {
+      background-color: #F31F43 !important;
+      border-color: #F31F43 !important;
+      margin: 7px 0 7px 0;
+      &:hover {
+        background-color: #4697da !important;
+        border-color: #4697da !important;
+      }
+    }
+  }
+
+  .payments-payuraty {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      max-height: 45px;
+    }
+  }
+
+  .sub-products-wrapper{
+    margin-top: 15px;
+  }
+}

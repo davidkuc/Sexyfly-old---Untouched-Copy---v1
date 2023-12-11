@@ -1,0 +1,20 @@
+<div class="search_dropdown dropdown">
+    <form method="GET" action="/category/#top">
+        <div class="search_dropdown_inner_wrapper search-input">
+            <div class="search_dropdown_input_wrapper">
+                <input
+                        {IF $CY_DATA == "TRUE"}cy-data="headerSearch"{/IF}
+                        class="input-field {IF $SEARCH_QUICK_ACTIVE}core_quickSearchAjax{/IF}" type="text" name="q" value="{$SEARCH_STRING}" placeholder="{$L_SEARCH_IN_SHOP}" autocomplete="off" />
+                {IF $SEARCH_DESC_ACTIVE}
+                    <input type="hidden" name="desc" value="1" />
+                {/IF}
+            </div>
+            <div class="search_dropdown_button_wrapper">
+                <input type="submit" value="{$L_SEARCH}" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+        {IF $SEARCH_QUICK_ACTIVE}
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/quick-search.html"}
+        {/IF}
+    </form>
+</div>

@@ -1,0 +1,95 @@
+.mobile-search {
+  display: none;
+  position: absolute;
+  top: -3px;
+  right: 0;
+  left: 0;
+  height: 100px;
+  padding: 18px 15px 15px;
+  background: $dropdown-background-color;
+  z-index: 1;
+  @include transform(translateY(-100%));
+  @include box-shadow(0 1px 3px rgba(0,0,0,2/10));
+  & .title {
+    font-size: 1.286rem;
+    font-weight: 500;
+  }
+  & .close-shape {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+
+  .clearbox {
+    position: relative;
+
+    &_button {
+      position: absolute;
+      display: none;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      right: 0px;
+      cursor: pointer;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      padding: 15px;
+
+      &:before, &:after {
+        content: '';
+        width: 12px;
+        height: 2px;
+        background: $mainColor;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+      }
+
+      &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(-45deg)
+      }
+    }
+  }
+
+  & form {
+    position: relative;
+    top: 10px;
+    & > .row {
+      position: relative;
+      display: flex;
+      margin:0;
+      // nie znalazłam użycia
+      &.search-container {
+        margin-left: -30px;
+        margin-right: -30px;
+        & > .search {
+          margin: 12px 0 0;
+        }
+      }
+    }
+
+    .mobile-search-input-wrapper{
+      padding: 0;
+      flex: 1;
+      & input[type="text"] {
+        @include border-top-right-radius(0);
+        @include border-bottom-right-radius(0);
+        border-right: 0;
+        margin: 0;
+      }
+    }
+      .mobile-search-btn-wrapper{
+         width:25%;
+        & input[type="submit"] {
+          @include border-top-left-radius(0);
+          @include border-bottom-left-radius(0);
+        }
+      }
+    @import "_quick_search_2.scss";
+  }
+}

@@ -1,0 +1,265 @@
+.instagram_popup_container {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  @media all and (max-width: 600px){
+    overflow: auto;
+  }
+  .instagram_popup_overlay {
+    position: absolute;
+    width: 100%;
+    z-index: 30;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    @media all and (max-width: 600px){
+      padding-top: 60px;
+      height: auto;
+    }
+    .instagram_popup {
+      display: flex;
+      width: 100%;
+      background: #fff;
+      position: relative;
+      border-radius: 4px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      &_img{
+        position: relative;
+        flex: 0 1 60%;
+        max-height: 600px;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        @media all and (max-width: 600px){
+          flex: 0 0 100%;
+          max-height: unset;
+          min-height: unset;
+        }
+        img, video{
+          position: relative;
+          max-height: 100%;
+          max-width: 100%;
+          border-radius: 4px 0 0 4px;
+          @media all and (max-width: 600px){
+            border-radius: 4px 4px 0 0;
+          }
+        }
+        video{
+          width: 100%;
+        }
+        .fa-play{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 80px;
+          color: #fff;
+          z-index: 10;
+        }
+        &.instagram_carousel {
+          flex: unset;
+          display: inline-block;
+          width: 60%;
+          position: relative;
+          padding-bottom: 0;
+          @media all and (max-width: 600px){
+            width: 100%;
+            overflow: hidden;
+            height: 375px;
+          }
+          &.thin_carousel{
+            .owl-stage {
+              min-height: 600px;
+              .owl-item {
+                min-height: 600px;
+                .instagram_video_wrapper{
+                  top: 0;
+                  transform: unset;
+                  max-width: 480px;
+                  video{
+                    width: 100%;
+                    max-width: 480px;
+                  }
+                }
+              }
+            }
+          }
+          &.square_carousel{
+            .owl-stage {
+              min-height: 600px;
+              .owl-item {
+                min-height: 600px;
+                .instagram_video_wrapper{
+                  top: 0;
+                  transform: unset;
+                }
+              }
+            }
+          }
+          .owl-stage {
+            min-height: 450px;
+            @media all and (max-width: 600px){
+              height: 375px;
+              min-height: unset;
+            }
+            .owl-item {
+              min-height: 450px;
+              @media all and (max-width: 600px){
+                min-height: unset;
+                height: 375px;
+                }
+              img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              .instagram_video_wrapper {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                @media all and (max-width: 600px){
+                  position: relative;
+                  height: 375px;
+                  top: unset;
+                  transform: unset;
+                }
+                video{
+                  @media all and (max-width: 600px){
+                    max-height: 100%;
+                    height: 375px;
+                  }
+                }
+              }
+            }
+          }
+          .owl-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            .owl-prev, .owl-next {
+              left: 15px;
+              position: absolute;
+              transform: rotate(-180deg);
+            }
+
+            .owl-next {
+              right: 15px;
+              left: unset;
+              transform: none;
+            }
+          }
+        }
+      }
+      &_info{
+        flex: 0 1 40%;
+        position: relative;
+        border-left: 1px solid #E3E3E3;
+        @media all and (max-width: 600px){
+          flex: 0 0 100%;
+          padding-bottom: 50px;
+          border-left: none;
+        }
+        .post_auth_name{
+          padding: 15px 15px;
+          border-bottom: 1px solid #E3E3E3;
+          img{
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+          }
+          span{
+            font-size: 14px;
+            color: #000;
+            font-weight: 500;
+            padding-left: 15px;
+          }
+        }
+        .post_descr{
+          padding: 25px 15px;
+          p{
+            font-size: 14px;
+            color: #3B3B3B;
+            margin: 0;
+            max-height: 190px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            @media all and (max-width: 600px){
+              max-height:  unset;
+              overflow-y: unset;
+            }
+            .more_caption{
+              color: #298cff;
+              font-weight: 500;
+              &:hover{
+                cursor: pointer;
+              }
+            }
+          }
+          .post_additional_info{
+            position: relative;
+            padding-top: 5px;
+            span {
+              color: #131313;
+              font-size: 16px;
+              display: inline-flex;
+              align-items: flex-start;
+              padding-right: 30px;
+              &:last-of-type{
+                padding-right: 0;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 13px;
+                color: #131313;
+                opacity: .5;
+              }
+              img {
+                padding-right: 7px;
+              }
+            }
+          }
+        }
+        .post_permalink{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          border-top: 1px solid #E3E3E3;
+          a{
+            color: #298cff;
+            font-weight: 500;
+            font-size: 13px;
+            text-decoration: none;
+            padding: 18px 0;
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+      &_close {
+        position: absolute;
+        top: -40px;
+        right: -15px;
+        background: none;
+        border: none;
+      }
+    }
+
+
+  }
+}

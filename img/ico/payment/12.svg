@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="35" viewBox="0 0 55 35">
+  <g id="icon-platnosci-odroczone-kalendarz" transform="translate(-193 -1589)">
+    <rect id="_55x35" data-name="55x35" width="55" height="35" transform="translate(193 1589)" fill="#fff" opacity="0"/>
+    <g id="Group_534" data-name="Group 534" transform="translate(207 1593)">
+      <path id="Path_1103" data-name="Path 1103" d="M25.667,2.625H21.875V.875a.875.875,0,0,0-1.75,0v1.75h-5.25V.875a.875.875,0,0,0-1.75,0v1.75H7.875V.875a.875.875,0,0,0-1.75,0v1.75H2.334A2.333,2.333,0,0,0,0,4.958V25.666A2.334,2.334,0,0,0,2.334,28H25.667A2.333,2.333,0,0,0,28,25.666V4.958a2.332,2.332,0,0,0-2.333-2.333m.583,23.041a.584.584,0,0,1-.583.584H2.334a.584.584,0,0,1-.584-.584V4.958a.584.584,0,0,1,.584-.583H6.125v1.75a.875.875,0,0,0,1.75,0V4.375h5.25v1.75a.875.875,0,0,0,1.75,0V4.375h5.25v1.75a.875.875,0,0,0,1.75,0V4.375h3.792a.584.584,0,0,1,.583.583Z" fill="#3a3a3c"/>
+      <rect id="Rectangle_205" data-name="Rectangle 205" width="3.5" height="2.625" transform="translate(6.125 10.5)" fill="#3a3a3c"/>
+      <rect id="Rectangle_206" data-name="Rectangle 206" width="3.5" height="2.625" transform="translate(6.125 14.875)" fill="#3a3a3c"/>
+      <rect id="Rectangle_207" data-name="Rectangle 207" width="3.5" height="2.625" transform="translate(6.125 19.25)" fill="#3a3a3c"/>
+      <rect id="Rectangle_208" data-name="Rectangle 208" width="3.5" height="2.625" transform="translate(12.25 19.25)" fill="#3a3a3c"/>
+      <rect id="Rectangle_209" data-name="Rectangle 209" width="3.5" height="2.625" transform="translate(12.25 14.875)" fill="#3a3a3c"/>
+      <rect id="Rectangle_210" data-name="Rectangle 210" width="3.5" height="2.625" transform="translate(12.25 10.5)" fill="#3a3a3c"/>
+      <rect id="Rectangle_211" data-name="Rectangle 211" width="3.5" height="2.625" transform="translate(18.375 19.25)" fill="#3a3a3c"/>
+      <rect id="Rectangle_212" data-name="Rectangle 212" width="3.5" height="2.625" transform="translate(18.375 14.875)" fill="#3a3a3c"/>
+      <rect id="Rectangle_213" data-name="Rectangle 213" width="3.5" height="2.625" transform="translate(18.375 10.5)" fill="#3a3a3c"/>
+    </g>
+  </g>
+</svg>

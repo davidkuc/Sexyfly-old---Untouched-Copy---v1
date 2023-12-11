@@ -1,0 +1,16 @@
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "image": "{IF $BLOG_CONTENT.props.image}{$SHOP_ADDR}{$BLOG_CONTENT.props.image}{/IF}",
+    "author": {
+        "@type": "Person",
+        "name": "{$BLOG_CONTENT.props.author}",
+        "url": "{$SHOP_ADDR}"
+    },
+    "headline": "{IF $BLOG_CONTENT.props.seo_h1}{$BLOG_CONTENT.props.seo_h1} {ELSE}{$BLOG_CONTENT.props.name}{/IF}",
+    "datePublished": "{$BLOG_CONTENT.props.date}",
+    "articleBody": {$BLOG_CONTENT.props.articleBody},
+    "articleSection": {$BLOG_CONTENT.props.articleSections}
+    }
+</script>

@@ -1,0 +1,130 @@
+.swipe-panel {
+  & .swipe-panel-content.categories {
+    & .mobile-categories {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: $primaryColor;
+      @include transform(translateX(0));
+      @include transition(transform 0.1s ease-in-out);
+      &.fade-in {
+        @include transform(translateX(100%));
+        @include transition(transform 0.1s ease-in-out);
+      }
+      & ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        & li {
+          border-bottom: $border;
+          position: relative;
+          width: 100%;
+          height: 40px;
+          & a {
+            display: inline-block;
+            width: 100%;
+            height: 39px;
+            padding: 0 40px 0 15px;
+            color: $font-color;
+            font-weight: $fw500;
+            font-size: 1.143rem; //16px;
+            text-decoration: none;
+            line-height: 2.5625; //41px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          & i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            color: $mainColor;
+            line-height: 41px;
+            text-align: center;
+          }
+          &:last-of-type {
+            border-bottom: 0;
+          }
+          &.close-subtree {
+            & a {
+              padding: 0 40px;
+              font-weight: 100;
+              background: rgba($secoundaryColor,5/10);
+            }
+            & i {
+              left: 0;
+              font-size: 20px;
+              color: $fontColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .swipe-panel-content.parameters {
+    padding: 15px;
+    .heading{
+      display: none!important;
+    }
+  }
+  & .swipe-panel-content.mobile-contact {
+    & .section {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      padding: 0 15px;
+      font-weight: $fw500;
+      font-size: 1.143rem; //16px;
+      line-height: 2.5625; //41px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    & .icons {
+      display: inline-block;
+      width: 100%;
+      padding: 0 15px;
+      & > a {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border: 2px solid $mainColor;
+        @include border-radius(50%);
+        position: relative;
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+        text-align: center;
+        & .fa {
+          font-size: 18px;
+          color: $fontColor;
+          &.fa-tiktok{
+            width: 14px;
+            &:before{
+              content: url('/view/new/img/ico/ic-tiktok.svg');
+            }
+          }
+        }
+        & .value {
+          position: absolute;
+          left: 45px;
+          top: 50%;
+          transform: translateY(-50%);
+          overflow: hidden;
+          display: block;
+          width: 215px;
+          text-align: left;
+          font-size: 14px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}

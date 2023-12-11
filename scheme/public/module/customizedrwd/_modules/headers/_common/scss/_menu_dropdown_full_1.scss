@@ -1,0 +1,28 @@
+&.full-width {
+  position: static;
+  & .dropdown {
+    max-width: $pageWidth - 30px;
+    width: 100%;
+    width: 100vw;
+    width: -webkit-calc( 100vw - 47px );
+    width: -moz-calc( 100vw - 47px );
+    width: -ms-calc( 100vw - 47px );
+    width: -o-calc( 100vw - 47px );
+    width: calc( 100vw - 47px );
+    left: 50%;
+    padding-bottom: 7px;
+    @include transform(translateX(-50%));
+    & > .row {
+      display: flex;
+      flex-wrap: wrap;
+      max-height: 600px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+  &:hover {
+    & .dropdown {
+      @include transform(translate(-50%,0));
+    }
+  }
+}

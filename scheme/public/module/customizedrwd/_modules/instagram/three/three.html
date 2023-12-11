@@ -1,0 +1,45 @@
+{IF $INSTAGRAM_ACTIVE}
+<section class="instagram-modul mod-instagram-3"
+{IF !$MODULE.viewOptions.instagram_likes} data-likes="false" {/IF}
+{IF !$MODULE.viewOptions.instagram_comments} data-comments="false" {/IF}
+{IF !$MODULE.viewOptions.instagram_img_descr} data-imgDescr="false" {/IF}
+>
+    <div class="container-fluid">
+        {IF  $MODULE.viewOptions.instagram_title }
+        <section class="heading inside {IF !$MODULE.viewOptions.instagram_headline}hidden{/IF}">
+                <ul>
+                    <li>
+                        <span class="title">{$MODULE.viewOptions.instagram_headline}</span>
+                    </li>
+                </ul>
+            </section>
+        {/IF}
+        <div class="row instagram-modul-row">
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+            <div class="instagram-modul-col">
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/instagram_post.html" }
+            </div>
+        </div>
+    </div>
+</section>
+{/IF}

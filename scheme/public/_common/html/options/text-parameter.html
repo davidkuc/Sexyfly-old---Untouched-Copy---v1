@@ -1,0 +1,6 @@
+<div class="text-parameter-box-wrapper">
+    {LOOP FROM=$OPTION_VALUE.values VALUE=O}
+    <span class="text-parameter-box core_parseOption"  data-param-value-id="{$O.id}" data-additional-price="{$O.change_price}" data-additional-price-no-discount="{$O.change_price_no_dis}" data-key="{$OPTION_KEY}-{$SUBPRODUCT_ID}" data-subproduct-id="{$SUBPRODUCT_ID}" data-limit-length="{$OPTION_VALUE.length}" role="textbox" contenteditable data-required-error="{$L_OPTION_REQUIRED_FILL}" data-required="{IF $OPTION_VALUE.required == 'yes'}true{ELSE}false{/IF}"></span>
+    <span class="text-parameter-counter" > 0 / {$OPTION_VALUE.length}</span>
+    {/LOOP}
+</div>

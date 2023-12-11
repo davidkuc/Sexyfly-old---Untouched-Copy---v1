@@ -1,0 +1,109 @@
+.inline_nav {
+  @media(max-width:767px) {
+    display: none;
+  }
+
+  ul.inline_nav_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    li.inline_nav_list_item {
+      position: relative;
+      padding: 10px 3px;
+      cursor: pointer;
+      text-decoration: none;
+
+      @media(max-width:992px) {
+        flex: 1;
+      }
+
+      &.static {
+        cursor: default;
+      }
+
+      .helper-icon {
+        padding-right: 4px;
+
+        .fa {
+          position: relative;
+          top: 0;
+          font-size: 16px;
+          color: $fontColor;
+        }
+      }
+
+      & .dropdown {
+        @include opacity(0);
+        @include transition(all 0.2s ease-in-out);
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 2/10));
+        @include transform(translateY(10px));
+        min-width: 150px;
+        backface-visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        text-align: right;
+        z-index: 1;
+        background: $primaryColor;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -10px;
+          right: 0;
+          left: 0;
+          height: 10px;
+        }
+
+        & ul {
+          padding: 5px 0 0;
+          display: inline-block;
+          width: 100%;
+
+          & li {
+            display: block;
+            width: 100%;
+            padding: 5px 15px;
+            cursor: pointer;
+
+            &:hover {
+              color: $topMenuTextColorHover;
+            }
+
+            & a {
+              color: $font-color;
+              text-decoration: none;
+
+              &:hover {
+                color: $mainColor;
+              }
+            }
+          }
+        }
+
+        @import "_dropdown_quick_cart_1.scss";
+      }
+
+      &:hover {
+        & .link:not(.static) {
+          color: $mainColor;
+        }
+
+        & .dropdown {
+          @include opacity(1);
+          @include transition(all 0.2s ease-in-out);
+          @include transform(translateY(0));
+          @include transform(translateY(calc(0px - 0.5px)));
+          pointer-events: auto;
+          z-index: 2;
+        }
+      }
+
+      @import "_search_dropdown_1.scss";
+    }
+  }
+}

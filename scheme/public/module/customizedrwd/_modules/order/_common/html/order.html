@@ -1,0 +1,699 @@
+<form method="POST" action="/order_finish/" class="core_parseForm core_orderFormChange">
+  <div class="cart-summary-body">
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="cart-summary-content">
+          <section class="heading inside to-left">
+            <ul>
+              <li>
+                <span class="title">{$L_USER_COUNTRY}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="row order-sections order-sections-country">
+            <div class="col-xs-12">
+              <select class="order-country core_getOrderShipments user_country" name="user_country" data-storage="attr(name)|ac_">
+                {IF $COUNTRIES_UE}
+                  <optgroup label="{$L_UNITED_EUROPE}">
+                    {LOOP FROM=$COUNTRIES_UE VALUE=COUNTRY}
+                      <option value="{$COUNTRY.NAME}" data-ue="{$COUNTRY.UE}" {$COUNTRY.SELECTED}>{$COUNTRY.VAL}</option>
+                    {/LOOP}
+                  </optgroup>
+                {/IF}
+                {IF $COUNTRIES}
+                  <optgroup label="{$L_NO_UNITED_EUROPE}">
+                    {LOOP FROM=$COUNTRIES VALUE=COUNTRY}
+                      <option value="{$COUNTRY.NAME}" data-ue="{$COUNTRY.UE}" {$COUNTRY.SELECTED}>{$COUNTRY.VAL}</option>
+                    {/LOOP}
+                  </optgroup>
+                {/IF}
+              </select>
+              <span class="order-country-select">
+                <i class="fa fa-long-arrow-left"></i> {$L_CHOOSE_DELIVERY_COUNTRY}
+              </span>
+            </div>
+          </div>
+          <section class="heading inside to-left">
+            <ul>
+              <li>
+                <span class="title">{$L_PAYMENT}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="row order-sections">
+            <div class="col-xs-12">
+              <table id="order-payments-methods" class="order-select-table" data-valid="orderPayment">
+                <tbody>
+                  {IF !$PAYMENTS}
+                    {$L_UNDEFINED_PAYMENTS_CURRENCY}
+                  {/IF}
+                  {LOOP FROM=$PAYMENTS VALUE=PAYMENT INDEX=INDEX}
+                    <tr cy-data="orderShipment" class="core_getOrderShipments" data-payment-id="{$PAYMENT.id}">
+                      <input type="hidden" class="pay-overhead" value="{$PAYMENT.overhead}" />
+                      {IF isset($PAYMENT.pay_methods) && $PAYMENT.pay_methods.on == true && (!isset($PAYMENT.pay_methods.no_show_methods) || $PAYMENT.pay_methods.no_show_methods == false)}
+                        <td class="{IF $CART_SHOW_ICONS_IN === 'payments' || $CART_SHOW_ICONS_IN === 'payments_shipping'}icons-show{/IF}">
+                          <div class="checkbox-field ">
+                            <input type="radio" name="show_banks" id="payid_banks_{$PAYMENT.pay_methods.id}" value="{$PAYMENT.pay_methods.id}" />
+                            <label for="payid_banks_{$PAYMENT.pay_methods.id}"></label>
+                              {IF $CART_SHOW_ICONS_IN === 'payments' || $CART_SHOW_ICONS_IN === 'payments_shipping' }
+                              <img class="payment-ico" src="{$PAYMENT.iconPath}" alt="">
+                              {/IF}
+                          </div>
+                        </td>
+                        <td>
+                          <span class="method-title">{$PAYMENT.pay_methods.name}</span>
+                          {IF $PAYMENT.desc}
+                            <span class="method-desc">{$PAYMENT.desc}</span>
+                          {/IF}
+                        </td>
+                      {ELSE}
+                        <td class="{IF $CART_SHOW_ICONS_IN === 'payments' || $CART_SHOW_ICONS_IN === 'payments_shipping'}icons-show{/IF}">
+                          <div class="checkbox-field">
+                            <input type="radio" name="payment" value="{$PAYMENT.id}" id="payid_payment_{$PAYMENT.id}" {IF $PAYMENT.id == 1}data-valid-parent="cashOnDeliveryRequired"{/IF} {$PAYMENT.checked} />
+                            <label for="payid_payment_{$PAYMENT.id}"></label>
+                            {IF $CART_SHOW_ICONS_IN === 'payments' || $CART_SHOW_ICONS_IN === 'payments_shipping' }
+                            <img class="payment-ico" src="{$PAYMENT.iconPath}" alt="">
+                            {/IF}
+                          </div>
+                        </td>
+                        <td>
+                          <span class="method-title">{$PAYMENT.name}</span>
+                          {IF $PAYMENT.desc}
+                            <span class="method-desc">{$PAYMENT.desc}</span>
+                          {/IF}
+                        </td>
+                      {/IF}
+                    </tr>
+                    {IF isset($PAYMENT.pay_methods) && $PAYMENT.pay_methods.on == true && (!isset($PAYMENT.pay_methods.no_show_methods) || $PAYMENT.pay_methods.no_show_methods == false)}
+                      <tr class="more">
+                        <td colspan="2">
+                          <div id="payment-methods-{$PAYMENT.pay_methods.id}" class="payment-methods">
+                            <div class="banks-list">
+                              <div class="container-fluid">
+                                <div class="row">
+                                  <div class="bank-wrapper {IF $PAYMENT.pay_methods.id == 15}banks-skypay{/IF}" data-valid-box>
+                                    <div class="bank col-xs-4 core_openOrderBankSelect">
+                                      <div class="hidden" data-payment-banks="{$PAYMENT.pay_methods.id}">
+                                        {IF $PAYMENT.pay_methods.var_base != ''}
+                                          <script>
+                                            window.Payment = window.Payment || {};
+                                            window.Payment[{$PAYMENT.pay_methods.id}] = '{$PAYMENT.pay_methods.var_base}';
+                                          </script>
+                                        {/IF}
+                                        {IF $PAYMENT.pay_methods.js_base != ''}
+                                          <script src="{$PAYMENT.pay_methods.js_base}"></script>
+                                        {/IF}
+                                      </div>
+                                      <div class="hidden">
+                                        <input type="radio" name="payment" value="" id="payid_{$PAYMENT.pay_methods.id}" data-valid="orderPaymentBank" />
+                                      </div>
+                                      <div class="bank-container" data-payment-selected="{$PAYMENT.pay_methods.id}">
+                                        <div class="bank-logo">
+                                          <div class="bank-logo-container">
+                                            <img data-src="" />
+                                            <i class="fa fa-university"></i>
+                                          </div>
+                                        </div>
+                                        <span class="bank-name">{$L_BANK_NOT_SELECTED}</span>
+                                        <div class="bank-select">
+                                          <div class="bank-select-container">
+                                            <span>
+                                              <span data-trans="select-bank">{$L_SELECT_BANK}</span>
+                                              <span data-trans="change-bank">{$L_CHANGE_BANK}</span>
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="bank col-xxs col-xs-4 col-sm-3 col-md-2 core_orderBankSelect bank-pattern hidden" data-payment="{$PAYMENT.pay_methods.id}" data-id="{{:id:}}" data-name="{{:name:}}" data-logo={{:logo:}}>
+                                      <div class="bank-container">
+                                        <div class="bank-logo">
+                                          <div class="bank-logo-container">
+                                            <img data-src="{{:logo:}}" />
+                                          </div>
+                                        </div>
+                                        <span class="bank-name">{{:name:}}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    {/IF}
+                  <tr class="tr-separator"></tr>
+                  {/LOOP}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row order-sections">
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/order/_common/html/additional-fields.html" SECTION="payment"}
+          </div>
+          <section class="heading inside to-left">
+            <ul>
+              <li>
+                <span class="title">{$L_SHIPMENT}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="row order-sections">
+            <div class="col-xs-12">
+              <table id="order-deliverys-methods" class="order-select-table" style="display:none;">
+                <tbody>
+                  <tr class="delivery-method-pattern hidden core_setOrderShipment" data-shipment-type="{{:shipment_type:}}">
+                    <td class="{IF $CART_SHOW_ICONS_IN === 'shipping' || $CART_SHOW_ICONS_IN === 'payments_shipping'}icons-show{/IF}">
+                      <div class="checkbox-field {IF $CART_SHOW_ICONS_IN === 'shipping' || $CART_SHOW_ICONS_IN === 'payments_shipping'}icons-show{/IF}">
+                        <input id="param-delivery-{{:id:}}" type="radio" name="shipment" value="{{:id:}}" data-valid-parent="{{:require_address:}}" />
+                        <label for="param-delivery-{{:id:}}"></label>
+                        {IF $CART_SHOW_ICONS_IN === 'shipping' || $CART_SHOW_ICONS_IN === 'payments_shipping' }
+                          {{:ic-path:}}
+                        {/IF}
+                      </div>
+                    </td>
+                    <td>
+                      <span class="method-title">{{:name:}}</span>
+                      <span class="method-desc">{{:description:}}</span>
+                    </td>
+                    <td class="cost">
+                      <span class="core_priceFormat" data-price="{{:cost:}}">{{:cost:}}</span>
+                    </td>
+                  </tr>
+                  <tr class="delivery-method-more-pattern hidden more">
+                    <td colspan="3"></td>
+                  </tr>
+                  <tr class="tr-separator"></tr>
+                </tbody>
+              </table>
+              <div id="order-deliverys-methods-empty" class="order-select-table empty" data-valid="orderShipment">
+                <span class="info">
+                  {$L_FIRST_SELECT_PAYMENT_METHOD}
+                </span>
+              </div>
+              <div id="order-deliverys-methods-error" class="order-select-table empty" data-valid="orderDeliveryError" style="display:none;">
+                <span class="info">
+                  {{:error:}}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row order-sections">
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/order/_common/html/additional-fields.html" SECTION="shipment"}
+          </div>
+
+          {IF !$LOGGED_IN}
+          <section class="heading inside to-left">
+            <ul>
+              <li>
+                <span class="title">{$L_CONTACT_DATA}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="row order-sections">
+            <div class="col-xs-12">
+              <table id="contact-date" class="order-select-table" data-valid="register-options">
+                <tbody>
+                {IF $ORDER_LOGGEDOUT}
+                <tr class="register-method-pattern core_accountOptions" data-profile-option="no_register" >
+                  <td>
+                    <div class="checkbox-field">
+                      <input id="register-option-1" type="radio" name="preview" value=""  />
+                      <label for="register-option-1"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="method-title">{$L_BUY_OPTION_NO_REGSTER}</span>
+                  </td>
+                </tr>
+                {/IF}
+                <tr class="tr-separator"></tr>
+                <tr class="register-method-pattern core_accountOptions" data-profile-option="register" >
+                  <td>
+                    <div class="checkbox-field">
+                      <input id="register-option-2" type="radio" name="preview" value="1" data-valid-parent="registerRequired" />
+                      <label for="register-option-2"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="method-title">{$L_BUY_OPTION_REGISTER}</span>
+                  </td>
+
+                </tr>
+                <tr class="more">
+                  <td colspan="2">
+                    <div  class="info contact-date-info" style="padding-left: 50px">
+                     <p style="margin: 0; color: rgba(19, 19, 19, 0.6)">{$L_REGISTER_OPTION_INFO}</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="tr-separator"></tr>
+                <tr class="register-method-pattern core_accountOptions" data-profile-option="have_registered" >
+                  <td>
+                    <div class="checkbox-field">
+                      <input id="register-option-3" type="radio" name="preview" value=""  />
+                      <label for="register-option-3"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="method-title">{$L_BUY_OPTION_HAVE_ACCOUNT}</span>
+                  </td>
+                </tr>
+                <tr class="more">
+                  <td colspan="2">
+                    <div  class="order_login contact-date-info" >
+                      <div class="row section-form">
+                        <div class="col-xs-12 col-sm-6">
+                          <span class="title-section">{$L_EMAIL}<span class="required">*</span></span>
+                          <input class="input-field" type="text" name="order-email" value="{$LOG.email}" data-valid="required" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                          <span class="title-section">{$L_PASSWORD}<span class="required">*</span></span>
+                          <input class="input-field" type="password" name="order-password" value="{$LOG.password}" data-valid="required|minlength:4|maxlength:32" />
+                        </div>
+                        <div class="col-xs-12 pull-right" style="text-align: right">
+                              <a class="order-password-remeber" style="margin-top: 15px; display: inline-block" href="/passrecover/">{$L_PASSWORD_REMEMBER}</a>
+                        </div>
+                        <div class="col-xs-12 ">
+                          <input type="hidden" name="redirect" value="{$REDIRECT}" />
+                          <a  id="order-login-btn"
+                              class="btn btn-primary btn-lg"
+                              data-valid="login-option"
+                              data-login-validated="false"
+                              style="position:relative; z-index: 10">{$L_LOGIN}</a>
+                          {IF $FACEBOOK_LOGIN_ACTIVE || $GOOGLE_LOGIN_ACTIVE}
+                            <p>{$L_REGISTER_OPTION_FC_GOOGLE}</p>
+                          {/IF}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {/IF}
+
+          <section class="heading inside to-left {IF !$LOGGED_IN}hidden{/IF}" {IF !$LOGGED_IN}data-not-logged{/IF}>
+            <ul>
+              <li>
+                <span class="title">{$L_REGISTER_USER_DATA}</span>
+              </li>
+            </ul>
+          </section>
+          <div class="row order-sections {IF !$LOGGED_IN}hidden{/IF}" {IF !$LOGGED_IN}data-not-logged{/IF}>
+            {IF !$LOGGED_IN}
+            <div class="col-xs-12 hidden" >
+              <span class="order-title-section">E-mail <span class="required">*</span></span>
+              <input class="input-field" type="email" name="user_email" value="{$POST.user_email}" data-valid="required|email" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xs-12 col-sm-6 hidden">
+              <span class="order-title-section">{$L_PASSWORD} <span class="required">*</span></span>
+              <input class="input-field" type="password" name="password" value="" data-valid="required|minlength:4|maxlength:32|equal:password_retype"  />
+            </div>
+            <div class="col-xs-12 col-sm-6 hidden">
+              <span class="order-title-section">{$L_PASSWORD_AGAIN} <span class="required">*</span></span>
+              <input class="input-field" type="password" name="password_retype" value="" data-valid="required|minlength:4|maxlength:32|equal:password"  />
+            </div>
+            {/IF}
+            <div class="col-xs-12">
+              <span class="order-title-section">{$L_USER_BILL_NAME}</span>
+              <input class="input-field" type="text" name="user_company" value="{$POST.user_company}" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <span class="order-title-section">{$L_USER_NAME} <span class="required">*</span></span>
+              <input class="input-field" type="text" name="user_firstname" value="{$POST.user_firstname}" data-valid="required|minlength:3" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <span class="order-title-section">{$L_USER_LASTNAME} <span class="required">*</span></span>
+              <input class="input-field" type="text" name="user_lastname" value="{$POST.user_lastname}" data-valid="required|minlength:2" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xxs-12 col-xs-7 col-sm-6 core_personalOrderShipment userCity">
+              <span class="order-title-section">{$L_USER_CITY} <span class="required">*</span></span>
+              <input class="input-field" type="text" name="user_city" value="{$POST.user_city}" data-valid="required|minlength:3" data-valid-parent-required="shipmentRequired" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xxs-12 col-xs-5 col-sm-6 core_personalOrderShipment userPostalCode">
+              <span class="order-title-section">{$L_USER_CODE} <span class="required">*</span></span>
+              <input class="input-field" type="text" name="user_code" value="{$POST.user_code}" data-valid="required|postcode" data-valid-parent-postcode=".user_country" data-valid-parent-required="shipmentRequired" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xs-12 col-sm-6 core_personalOrderShipment userStreets">
+              <span class="order-title-section">{$L_USER_STREET} <span class="required">*</span></span>
+              <input class="input-field" type="text" name="user_street" value="{$POST.user_street}" data-valid="required|streetAddressNr" data-valid-parent-required="shipmentRequired" data-storage="attr(name)|ac_" />
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <span class="order-title-section">{$L_USER_PHONE} {IF $ORDER_REQ_PHONE == 1 || $ORDER_REQ_PHONE == 2}<span class="required">*</span>{/IF}</span>
+              <input class="input-field" type="tel" name="user_phone" value="{$POST.user_phone}" data-valid="{IF $ORDER_REQ_PHONE == 1 || $ORDER_REQ_PHONE == 2}required|{/IF}phone" {IF $ORDER_REQ_PHONE == 2}data-valid-parent-required="cashOnDeliveryRequired"{/IF} data-storage="attr(name)|ac_" />
+            </div>
+            {IF $SHOW_RECEIPT_VAT_FIELD}
+              <div class="col-xs-12">
+                <div class="row user-receipt-wrapper">
+                  <div class="col-sm-6">
+                    <div class="checkbox-field">
+                      <input id="user-receipt-vat-checkbox" type="checkbox" name="user_receipt_vat_checkbox" data-valid-parent="checkedReceiptVat" data-storage="attr(name)|ac_">
+                      <label for="user-receipt-vat-checkbox">
+                        <span class="title"><strong>{$L_USER_TIN_RECEIPT}:</strong></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <input id="user-receipt-vat-input" class="input-field" type="text" name="user_receipt_vat" value="" data-valid="taxNumber" data-valid-parent-required="checkedReceiptVat" data-storage="attr(name)|ac_" />
+                  </div>
+                </div>
+              </div>
+            {/IF}
+          </div>
+
+          <div class="row order-sections {IF !$LOGGED_IN}hidden{/IF}" {IF !$LOGGED_IN}data-not-logged{/IF}>
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/order/_common/html/additional-fields.html" SECTION="data"}
+          </div>
+
+          {IF $SHOW_INVOICE_REQUEST}
+
+          <div class="row order-sections {IF !$LOGGED_IN}hidden{/IF}" {IF $REQUIRE_INVOICE_DATA}style="display: none"{/IF} {IF !$LOGGED_IN}data-not-logged{/IF}>
+            <div class="col-xs-12">
+              <div class="checkbox-field">
+                <input id="param-vat" class="core_getOrderShipments" type="checkbox" name="invoice" value="1" data-valid-parent="vatRequired" {IF $REQUIRE_INVOICE_DATA}checked{/IF} data-storage="attr(name)|ac_" />
+                <label for="param-vat">
+                  <span class="title"><strong>{$L_INVOICE_CHOOSE}</strong></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="param-vat-container {IF !$LOGGED_IN}hidden{/IF}" {IF !$REQUIRE_INVOICE_DATA}style="display: none"{/IF} {IF !$LOGGED_IN}data-not-logged{/IF}>
+            <section class="heading inside to-left">
+              <ul>
+                <li>
+                  <span class="title">{$L_REGISTER_BILL_USER_DATA}</span>
+                </li>
+              </ul>
+              <div class="order-copy-data">
+                <a href="#" class="core_copyDataToInvoice">
+                  {$L_ORDER_COPY_DATA} <i class="fa fa-arrow-circle-o-down"></i>
+                </a>
+              </div>
+            </section>
+            <div class="row order-sections">
+              <div class="col-xs-12 col-sm-6">
+                <span class="order-title-section">{$L_USER_COUNTRY}</span>
+                <select class="order-country user_bill_country core_getOrderShipments" id="user-bill-country" name="user_bill_country" data-storage="attr(name)|ac_">
+                  {IF $COUNTRIES_UE}
+                    <optgroup label="{$L_UNITED_EUROPE}">
+                      {LOOP FROM=$COUNTRIES_UE VALUE=COUNTRY}
+                        <option value="{$COUNTRY.NAME}" data-ue="{$COUNTRY.UE}" {$COUNTRY.SELECTED}>{$COUNTRY.VAL}</option>
+                      {/LOOP}
+                    </optgroup>
+                  {/IF}
+                  {IF $COUNTRIES}
+                    <optgroup label="{$L_NO_UNITED_EUROPE}">
+                      {LOOP FROM=$COUNTRIES VALUE=COUNTRY}
+                        <option value="{$COUNTRY.NAME}" data-ue="{$COUNTRY.UE}" {$COUNTRY.SELECTED}>{$COUNTRY.VAL}</option>
+                      {/LOOP}
+                    </optgroup>
+                  {/IF}
+                </select>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <span class="order-title-section">{$L_USER_BILL_COMPANY_PERSON} <span class="required">*</span></span>
+                <input class="input-field" type="text" name="user_bill_company" value="{$POST.user_bill_company}" data-valid="required" data-valid-parent-required="vatRequired" data-storage="attr(name)|ac_" />
+              </div>
+              <div class="col-xxs-12 col-xs-7 col-sm-6">
+                <span class="order-title-section">{$L_USER_CITY} <span class="required">*</span></span>
+                <input class="input-field" type="text" name="user_bill_city" value="{$POST.user_bill_city}" data-valid="required" data-valid-parent-required="vatRequired" data-storage="attr(name)|ac_" />
+              </div>
+              <div class="col-xxs-12 col-xs-5 col-sm-6">
+                <span class="order-title-section">{$L_USER_CODE} <span class="required">*</span></span>
+                <input class="input-field" type="text" name="user_bill_code" value="{$POST.user_bill_code}" data-valid="required|postcode" data-valid-parent-postcode=".user_bill_country" data-valid-parent-required="vatRequired" data-storage="attr(name)|ac_" />
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <span class="order-title-section">{$L_USER_STREET} <span class="required">*</span></span>
+                <input class="input-field" type="text" name="user_bill_street" value="{$POST.user_bill_street}" data-valid="required|streetAddressNr" data-valid-parent-required="vatRequired" data-storage="attr(name)|ac_" />
+              </div>
+              <div class="col-xs-8 col-sm-4">
+                <span class="order-title-section">{$L_USER_BILL_VAT}</span>
+                <div class="inputs-bill-wrapper">
+                  <input class="input-field user-bill-iso" type="text" size="2" id="user-bill-iso" name="user_bill_iso" data-storage="attr(name)|ac_" readonly="readonly">
+                    <div class="user-bill-vat-wrapper">
+                      <input class="input-field" type="text" id="user-bill-vat" name="user_bill_vat" value="{$POST.user_bill_vat}" data-valid="taxNumber" data-valid-parent-required="!billVatRequired,vatRequired" data-storage="attr(name)|ac_" />
+                    </div>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-2">
+                <span class="order-title-section">&nbsp;</span>
+                <div class="checkbox-field" id="bill-vat-exists-container" {IF $ORDER_WDT_ACTIVE} data-toggle="tooltip" data-placement="top" title="{$L_WDT_TAX_escaped}"{/IF}>
+                  <input id="bill-vat-exists" name="bill_vat_exists" type="checkbox" value="1" data-storage="attr(name)|ac_" data-valid-parent="billVatRequired">
+                  <label for="bill-vat-exists">
+                    <span class="title"><strong>{$L_NONE}</strong></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/IF}
+
+          <div class="row order-sections">
+            <div class="col-xs-12">
+              <div class="row">
+
+                {IF $ORDER_WDT_ACTIVE}
+                <div class="col-xs-12" id="param-wdt" data-toggle="tooltip" data-placement="top" title="{$L_WDT_TAX_escaped}">
+                  <div class="checkbox-field">
+                    <input id="param-rules-wdt" class="core_getOrderShipments" type="checkbox" name="wdt" value="1" data-storage="attr(name)|ac_" />
+                    <label for="param-rules-wdt">
+                      <span class="title">{$L_ORDER_WDT_CHECKBOX_TEXT}</span>
+                    </label>
+                  </div>
+                </div>
+                {/IF}
+
+                {LOOP FROM=$CHECKBOXES VALUE=CHECKBOX KEY=KEY INDEX=INDEX}
+                  <div class="col-xs-12">
+                    <div class="checkbox-field" {IF $CHECKBOX.required}data-valid-box{/IF}>
+                      <input id="param-rules-{$INDEX}" type="checkbox" name="{$KEY}" value="1" {IF $CHECKBOX.checked}checked{/IF} {IF $CHECKBOX.required}data-valid="required"{/IF} data-storage="attr(name)|ac_" />
+                      <label for="param-rules-{$INDEX}">
+                        <span class="title">{$CHECKBOX.lang} {IF $CHECKBOX.required}<span class="required">*</span>{/IF}</span>
+                      </label>
+                    </div>
+                  </div>
+                {/LOOP}
+
+                {IF $REGISTER_NEWSLETTER}
+                  <div class="col-xs-12">
+                    <div class="checkbox-field">
+                      <input id="param-rules-newsletter" type="checkbox" name="register_newsletter" value="1" {$POST.register_newsletter_checked} data-storage="attr(name)|ac_" />
+                      <label for="param-rules-newsletter">
+                        <span class="title">{$L_REGISTER_NEWSLETTER}</span>
+                      </label>
+                    </div>
+                  </div>
+                {/IF}
+                {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/order/_common/html/additional-fields.html" SECTION="rules"}
+              </div>
+            </div>
+          </div>
+          <div class="row order-sections hidden-on-mobile">
+            <div class="col-xs-12">
+              <button cy-data="orderFinishOrder" name="finish" type="submit" value="1" class="btn btn-primary btn-lg btn-order-confirm core_finishOrder" disabled>
+                {$L_CREATE_ORDER}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-5 order-preview" id="fixed-preview">
+        <div class="cart-summary-content">
+          <section class="heading inside to-left">
+            <ul>
+              <li>
+                <span class="title">{$L_CART_PRODUCTS_LIST}</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+
+        <table class="products-list core_storeCartProducts">
+          <tbody>
+          <tr
+            class="product-list-item-template hidden"
+            data-id="{{:id:}}"
+            data-hash="{{:hash:}}"
+            data-amount="{{:amount:}}"
+            data-price="{{:price:}}"
+            data-tax="{{:tax:}}"
+            data-options="{{:options_string:}}"
+          >
+            <td class="product-img">
+              {{:image_tag:}}
+            </td>
+            <td class="product-info">
+              <span class="title">{{:name:}}</span>
+              <span class="details">
+                  {{:options_details:}}
+              </span>
+            </td>
+            <td class="product-qty hidden-on-mobile">
+              <span>{{:amount:}}</span>
+            </td>
+            <td class="product-price hidden-on-mobile">
+              {{:formatted_price:}}
+            </td>
+            <td class="hidden-on-desktop product-view-mobile">
+              <div class="product-qty">{{:amount:}}&nbsp;</div>
+              <div class="product-price">
+                {{:formatted_price:}}
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="cart-summary-content">
+          <div class="row order-sum">
+            {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto'}
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-left">{$L_ORDER_PRODUCTS_PRICE}:</span>
+              </div>
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-right">
+                  <span class="core_priceFormat" data-price="{$PRODUCTS_PRICE_NET_WITHOUT_DISCOUNT}"></span> {$L_NET}
+                </span>
+              </div>
+            {/IF}
+            <div class="col-xxxs-12 col-xs-6">
+              <span class="pull-left">{$L_ORDER_PRODUCTS_PRICE}:</span>
+            </div>
+            <div class="col-xxxs-12 col-xs-6">
+              <span class="pull-right">
+                <span class="core_priceFormat core_orderPriceItems" data-price="{$PRODUCTS_PRICE_WITHOUT_DISCOUNT}"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+              </span>
+            </div>
+            {IF $DISCOUNTS.group && $DISCOUNTS.group.sum > 0}
+            <div class="core_orderIsPriceDiscount">
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-left">{$L_DISCOUNT}:</span>
+              </div>
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-right">
+                  - <span class="core_priceFormat core_orderPriceDiscount" data-price="{$DISCOUNTS.group.sum}"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+                </span>
+              </div>
+            </div>
+            {/IF}
+            {IF $DISCOUNTS.code}
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-left">{$L_COUPON}:</span>
+              </div>
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-right">
+                  {IF $DISCOUNTS.code.sum >= 0 && $DISCOUNTS.code.code_type != "free_delivery"}
+                  - <span class="core_priceFormat core_orderPriceCoupon" data-price="{$DISCOUNTS.code.sum}"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+                  {ELSEIF $DISCOUNTS.code.code_type === "free_delivery" && $DISCOUNTS.code.sum == 0 }
+                  <span>{$L_FREE_DELIVERY_COUPON}</span>
+                  {/IF}
+                </span>
+              </div>
+            {/IF}
+            {IF $DISCOUNTS.loyalty && $DISCOUNTS.loyalty.sum > 0}
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-left">{$L_POINTS}:</span>
+              </div>
+              <div class="col-xxxs-12 col-xs-6">
+                <span class="pull-right">
+                  - <span class="core_priceFormat core_orderPriceLoyalty" data-price="{$DISCOUNTS.loyalty.sum}"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+                </span>
+              </div>
+            {/IF}
+
+
+            <div class="col-xxxs-12 col-xs-6">
+              <span class="pull-left">{$L_SHIPPING_PRICE}:</span>
+            </div>
+            <div class="col-xxxs-12 col-xs-6">
+              <span class="pull-right">
+                <span class="core_priceFormat core_orderPriceShipment"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+              </span>
+            </div>
+            <div class="col-xxxs-12 col-xs-6 core_orderIsPriceOverhead hidden">
+              <span class="pull-left">{$L_OVERHEAD}:</span>
+            </div>
+            <div class="col-xxxs-12 col-xs-6 core_orderIsPriceOverhead hidden">
+              <span class="pull-right">
+                <span class="core_priceFormat core_orderPriceOverhead"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+              </span>
+            </div>
+          </div>
+          <div class="row order-sum upper">
+            <div class="col-xs-4">
+              <span class="pull-left">{$L_TOTAL_VALUE}:</span>
+            </div>
+            <div class="col-xs-8">
+              <span class="pull-right">
+                <span class="core_priceFormat core_orderPriceTotal"></span> {IF $PRICE_TYPE == 'netto' || $PRICE_TYPE == 'netto_brutto' || $PRICE_TYPE == 'brutto'}{$L_GROSS}{/IF}
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 cart-summary-info hidden" id="core_wdtInfo">
+              <span>{$L_WDT_INFO}</span>
+            </div>
+          </div>
+          <div class="row order-sum discount hidden">
+            <input type="hidden" name="code_discount" value="{$POST.code_discount}">
+            <input type="hidden" name="gratis" value="{$POST.gratis}">
+          </div>
+          <div class="row order-sum comment">
+            <div class="col-xs-12">
+              <span class="pull-left">{$L_NOTES}</span>
+            </div>
+            <div class="col-xs-12">
+              <textarea class="textarea-field" name="user_note" rows="3" data-storage="attr(name)|ac_"></textarea>
+            </div>
+          </div>
+          <div class="row order-sections hidden-on-desktop">
+            <div class="col-xs-12">
+              <button cy-data="orderFinishOrderMob" name="finish" type="submit" value="1" class="btn btn-primary btn-lg btn-order-confirm core_finishOrder">
+                {$L_CREATE_ORDER}
+              </button>
+            </div>
+          </div>
+        </div>
+        {IF $LOGGED_IN && $LOYALTY_PROGRAM && $LOGGED_IN}
+          <div class="cart-summary-content">
+            <section class="heading inside to-left">
+              <ul>
+                <li>
+                  <span class="title">{$L_LOYALTY_PROGRAM}</span>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="cart-summary-content">
+            <div class="row order-sum">
+              <div class="hidden points-for-order">
+                <div class="col-xs-8">
+                  <span class="pull-left">{$L_YOU_WILL_RECEIVE_THE_ORDER}:</span>
+                </div>
+                <div class="col-xs-4">
+                  <span class="pull-right">
+                    <span class="points-count">{$COUNT_GET_POINTS_IN_ORDER}</span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-xs-8">
+                <span class="pull-left">{$L_YOU_WILL_USE_THE_ORDER}:</span>
+              </div>
+              <div class="col-xs-4">
+                <span class="pull-right">
+                  <span>{$USED_POINTS}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        {/IF}
+      </div>
+    </div>
+  </div>
+</form>

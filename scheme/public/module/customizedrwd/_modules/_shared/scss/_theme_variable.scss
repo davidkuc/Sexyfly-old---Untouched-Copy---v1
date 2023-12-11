@@ -1,0 +1,123 @@
+// =============================
+//          FONT
+// =============================
+
+/*
+font - czcionka główna
+ */
+
+$font-family: $font;
+$font-size: 14px;
+$font-color: #131313;
+html, body {
+    font-size: $font-size;
+    font-family: $font-family;
+}
+
+$base-font-size: 14px;
+
+$text-transform: initial;
+
+// =============================
+//          COLOR
+// =============================
+/*
+
+mainColor - kolor główny 
+additionalColor - kolor dodatkowy
+backgroundColorTopMenu - kolor tła menu górnego
+topMenuTextColor - kolor tekstu w menu górnym
+topMenuTextColorHover - kolor tekstu w menu górnym po najechaniu
+priceColor - kolor główny cen 
+textColorOnButtons - kolor tekstu na buttonach
+backgroundColorFooter - kolor tła stopki
+footerTextColor - kolor tekstu w stopce
+footerTextColorHover - kolor tekstu w stopce po najechaniu */
+
+$light-accent-color: #efefef; // borders = $secoundaryColor:
+$price-discount-color: rgba($priceNormal,6/10);
+
+// font
+$font-color: #131313;
+
+// button
+$button-color: $textColorOnButtons; 
+$button-color-hover: $textColorOnButtons; 
+
+// button background-color
+$button-background-color: $mainColor;
+$button-background-color-hover: $additionalColor;
+
+// dropdown menu, search background-color
+$dropdown-background-color: white; //old primaryColor
+
+// cross
+$cross-color: red;
+
+// =============================
+//          FONT WEIGHT
+// =============================
+$font-weight: 400;
+$font-weight-button: 500;
+$font-weight-input: 500;
+$fw100: 100;
+$fw400: 400;
+$fw500: 500;
+$fw600: 600;
+$fw700: 700;
+
+
+// =============================
+//          BORDER
+// =============================
+
+
+// border-width
+$border-width: 1px;
+$border-width-input: $border-width;
+$border-width-button: $border-width;
+
+// border-radius
+$border-radius: 3px;
+$border-radius-input: $border-radius;
+$border-radius-button: $border-radius;
+$border-radius-container: 0;
+
+// border-style
+$border-style: solid;
+$border-style-input: $border-style;
+$border-style-button: $border-style;
+
+// border-color
+$border-color: $additionalColor;
+$border-color-input: $border-color;
+$border-color-input-hover: $mainColor;
+$border-color-button: $border-color;
+$border-color-button-hover: $additionalColor;
+
+$border: $border-width $border-style $colorLineBorder;
+
+
+
+// =============================
+//          FORM
+// =============================
+
+$form-item-height: 35px; 
+$form-item-padding: 10px;
+$form-item-font-size: 0.9286rem; //13px
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+-webkit-text-fill-color: $font-color;
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+}

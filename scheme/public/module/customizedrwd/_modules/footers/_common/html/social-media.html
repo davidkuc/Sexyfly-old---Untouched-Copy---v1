@@ -1,0 +1,65 @@
+{IF
+  $MODULE.children.common_sm[0].children[0].props.value ||
+  $MODULE.children.common_sm[0].children[1].props.value ||
+  $MODULE.children.common_sm[0].children[2].props.value ||
+  $MODULE.children.common_sm[0].children[3].props.value ||
+  $MODULE.children.common_sm[0].children[4].props.value ||
+  $MODULE.children.common_sm[0].children[5].props.value ||
+  $MODULE.children.common_sm[0].children[6].props.value
+}
+  <div class="col-xs-12">
+    <div class="section-title center">
+      <span>{$L_YOU_ARE_US_ON}</span>
+    </div>
+    <div class="socials">
+      {LOOP FROM=$MODULE.children.common_sm[0].children VALUE=SOCIAL}
+        {IF $SOCIAL.props.value}
+          <a {IF $SOCIAL.key == "sm_custom_link1" || $SOCIAL.key == "sm_custom_link2"
+             || $SOCIAL.key == "sm_custom_link3" || $SOCIAL.key == "sm_custom_link4" || $SOCIAL.key == "sm_custom_link5"}
+             data-custom_link={$SOCIAL.key}{/IF}
+             href="{$SOCIAL.props.value}" rel="nofollow" target="_blank">
+            {IF $SOCIAL.key == 'sm_facebook'}
+              <i class="fa fa-facebook"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_instagram'}
+              <i class="fa fa-instagram"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_youtube'}
+              <i class="fa fa-youtube"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_tiktok'}
+            <i class="fa fa-tiktok"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_googleplus'}
+              <i class="fa fa-google-plus"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_snapchat'}
+              <i class="fa fa-snapchat-ghost"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_twitter'}
+              <i class="fa fa-twitter"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_pinterest'}
+              <i class="fa fa-pinterest"></i>
+            {/IF}
+            {IF $SOCIAL.key == 'sm_custom_link1'}
+            <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+            {/IF}
+            {IF $SOCIAL.key == 'sm_custom_link2'}
+            <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+            {/IF}
+            {IF $SOCIAL.key == 'sm_custom_link3'}
+            <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+            {/IF}
+            {IF $SOCIAL.key == 'sm_custom_link4'}
+            <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+            {/IF}
+            {IF $SOCIAL.key == 'sm_custom_link5'}
+            <img data-custom-icon="{$SOCIAL.key}" src=" {$SOCIAL.props.preview}" alt="{$SOCIAL.props.value}">
+            {/IF}
+          </a>
+        {/IF}
+      {/LOOP}
+    </div>
+  </div>
+{/IF}

@@ -1,0 +1,69 @@
+<header id="header" class="mod-header-1 {IF ($SHOP_TEST && $CONTROLER == 'cart') || ($SHOP_TEST && $WRONG_EMAIL)}shop-test-margin{/IF}">
+	{IF $SHOW_COOKIE_INFO}
+		{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/cookies.html"}
+	{/IF}
+	{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/mobile-search.html"}
+	<div class="header_inner_wrapper">
+		<section class="top_bar">
+			<div class="sky-container">
+				<div class="top_bar_inner_wrapper">
+					<div class="top_bar_item left">
+						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-left.html"}
+					</div>
+					<div class="top_bar_item right">
+						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/top-bar-right.html" CY_DATA="TRUE"}
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="header_middle_content">
+			<div class="sky-container">
+				<div class="header_middle_content_inner_wrapper">
+					<a href="/" class="header_middle_content_logo">
+						<img src="{$MODULE.children.common_shop_logo[0].props.preview}" alt="{IF $MODULE.children.logo_alt[0].props.value} {$MODULE.children.logo_alt[0].props.value} {ELSE} {$LOGO_ALT} {/IF}" />
+					</a>
+					<ul class="mobile-actions">
+						<li id="mobile-open-search">
+							<i class="fa fa-search"></i>
+						</li>
+						<li id="mobile-open-menu">
+							<i class="fa fa-bars"></i>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="menu-wrapper">
+			<div class="sky-container">
+				<div class="menu menu-calculate smart-menu" data-action="inline">
+					<ul class="header_bottom_content_list">
+						{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/main-menu.html"}
+						<li class="hamburger {IF $MENU_SHOW_TYPE == 'click'}click{/IF}">
+							<a href="#">
+								<i class="fa fa-bars"></i>
+							</a>
+							<div class="dropdown">
+								<div class="row">
+									<div class="col-xs-12 smart-menu">
+										<ul class="hambureger-elements"></ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="search {IF $MENU_SHOW_TYPE == 'click' && 1 == 2}click{/IF}">
+							<a href="#">
+								<i class="fa fa-search"></i>
+							</a>
+							{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/search-dropdown-1.html" CY_DATA="TRUE"}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section id="sticky-header" data-sticky="{$IS_STICKY}">
+			<div class="sky-container">
+				{INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/sticky-header.html"}
+			</div>
+		</section>
+	</div>
+</header>

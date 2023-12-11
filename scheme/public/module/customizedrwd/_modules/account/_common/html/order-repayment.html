@@ -1,0 +1,64 @@
+<div class="col-xs-12 col-sm-{IF $LOGGED_IN}9{ELSE}12{/IF}">
+  <div class="row {IF $LOGGED_IN}account-row {/IF}">
+{IF $REPAYMENT && $PAY_URL}
+  <div class="row section-form">
+    <div class="col-md-3 hidden-on-mobile"></div>
+    <div class="col-xs-12 col-md-6">
+      <section class="heading inside">
+        <ul>
+          <li>
+            <span class="title">{$L_PAY_ONLINE}</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="col-md-3 hidden-on-mobile"></div>
+  </div>
+  <div class="row section-desc text-center">
+    <div class="col-xs-12">
+      <strong>{$L_THANKS_FOR_ORDER}: {$ORDER_ID}</strong>
+    </div>
+  </div>
+  <div class="row section-form">
+    <div class="col-xs-12">
+      <form method="POST" action="{$PAY_URL}" target="_blank">
+        {LOOP FROM=$PAY_FIELDS VALUE=FIELD KEY=KEY}
+          <input type="hidden" name="{$KEY}" value="{$FIELD}" />
+        {/LOOP}
+        <button type="submit" class="btn btn-primary btn-lg btn-register-confirm">{$L_PAY_ONLINE}</button>
+      </form>
+    </div>
+  </div>
+{ELSEIF $PAY_ONLINE_HTML_DATA}
+  <div style="text-align: center">
+    {$PAY_ONLINE_HTML_DATA}
+  </div>
+  <script>
+      // (function(){
+      //     if(document.querySelector('button.paypal-button')){
+      //         document.querySelector('button.paypal-button').click();
+      //     }
+      // })();
+  </script>
+{ELSE}
+  <div class="row section-form">
+    <div class="col-md-3 hidden-on-mobile"></div>
+    <div class="col-xs-12 col-md-6">
+      <section class="heading inside">
+        <ul>
+          <li>
+            <span class="title">{$L_INFORMATION}</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="col-md-3 hidden-on-mobile"></div>
+  </div>
+  <div class="row section-desc text-center">
+    <div class="col-xs-12">
+      <strong>{$L_FAST_PAYMENT_TRY_PAID}</strong>
+    </div>
+  </div>
+{/IF}
+  </div>
+</div>

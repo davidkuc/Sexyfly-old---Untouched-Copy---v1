@@ -1,0 +1,142 @@
+#sticky-header{
+  max-height: 0px;
+  overflow: hidden;
+  background: #fff;
+  transition: .3s ease-in-out;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  &.active{
+    overflow: unset;
+    transition: 1s ease-in-out;
+    max-height: 500px;
+    box-shadow: 0px -3px 5px 2px rgba(0,0,0,0.75);
+  }
+  @media(max-width: 767px){
+    display: none;
+  }
+  .sticky-header__wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    .sticky-header_content{
+      &__logo{
+        flex: 0 0 15%;
+        text-align: center;
+        padding: 5px 0;
+        img{
+          width: 100%;
+          max-width: 190px;
+        }
+      }
+      &__menu{
+        flex: 0 0 67%;
+        display: flex;
+        justify-content: center;
+        &_list{
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li {
+            // menu item text
+            display: inline-block;
+            position: relative;
+            @import "_menu_dropdown_1.scss";
+            @import "_menu_dropdown_click_1.scss";
+            @import "_menu_dropdown_single_1.scss";
+            @import "_sticky_dropdown.scss";
+            @import "_hamburger_dropdown_1.scss";
+            padding: 14px 0;
+            a {
+              display: block;
+              line-height: $menu-line-height;
+              font-weight: $menu-font-weight;
+              font-size: $menu-font-size;
+              text-decoration: none;
+              padding: 10px 15px;
+              color: $topMenuTextColor;
+              cursor: pointer;
+
+              .fa {
+                font-size: 10px;
+                position: relative;
+                top: -2px;
+
+                &.fa-search,
+                &.fa-bars {
+                  font-size: 16px;
+                  top: 0;
+                }
+              }
+            }
+            &:hover {
+              a {
+                color: $topMenuTextColorHover;
+              }
+
+              &:not(.click) {
+                & .dropdown {
+                  //@include opacity(1);
+                  @include transition(all 0.2s ease-in-out 0.2s);
+                  //@include transform(-50%, -60px);
+                  @include transform(-50%, 0);
+                  pointer-events: auto;
+                  //visibility: visible;
+                  z-index: 2;
+                }
+              }
+            }
+            .cat-title {
+              a {
+                font-size: 20px;
+                font-weight: $submenu-title-font-weight;
+                line-height: $submenu-title-line-height;
+              }
+            }
+            .header_bottom_content_list_dropdown_item {
+              a {
+                font-size: 10px;
+              }
+            }
+            &.one-row-producers {
+              position: relative !important;
+
+              .dropdown {
+                min-width: 270px !important;
+                width: 270px !important;
+                padding-bottom: 7px !important;
+
+                .producer-title{
+                  a{
+                    font-size: $submenu-text-font-size !important;
+                    font-weight: $submenu-text-font-weight !important;
+                    line-height: $submenu-text-line-height !important;
+                  }
+                }
+              }
+            }
+
+            &.many-rows-producers{
+              .dropdown{
+                .producer-title{
+                  a{
+                    font-size: $submenu-text-font-size !important;
+                    font-weight: $submenu-text-font-weight !important;
+                    line-height: $submenu-text-line-height !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &__nav{
+        flex: 0 0 15%;
+        @import "_inline_nav.scss";
+      }
+    }
+  }
+}

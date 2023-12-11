@@ -1,0 +1,544 @@
+.sub-products-container{
+  @import "../../_shared/scss/_owl_controls.scss";
+
+
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+
+  &.three-col-container{
+    gap: 30px;
+    justify-content: space-between;
+  }
+  &.four-col-container{
+    @extend .three-col-container;
+    flex-wrap: wrap;
+    gap: 10px;
+
+  }
+  &.five-col-container{
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &.second-mod{
+    gap: 30px;
+   .sub-product{
+     &_thumb{
+       max-width: 200px;
+       img {
+         min-width: 200px;
+         height: 245px;
+       }
+     }
+     &_dscr{
+       &_name{
+         font-size: 18px;
+       }
+     }
+   }
+  }
+
+  .sub-product{
+    flex: 0 1 50%;
+    display: flex;
+
+    &:hover{
+      .sub-product_dscr{
+        &_price{
+          .sub_product_brutto_price{
+            height: 30px;
+            transition: .3s ease-in-out;
+          }
+        }
+      }
+    }
+
+    &_thumb{
+      width: 100%;
+      max-width: 260px;
+      img{
+        width: 100%;
+        height: 325px;
+        min-width: 260px;
+        object-fit: contain;
+      }
+    }
+    &_dscr{
+      padding-left: 30px;
+      max-width: 100%;
+      &_name{
+        color: $fontColor;
+        padding-bottom: 0;
+        display: -webkit-box;
+        line-height: 1.6;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 18px;
+        height: 57px;
+        max-height: 57px;
+      }
+      &_price{
+        margin-top: 10px;
+        font-size: 18px;
+        color: $priceColor;
+        text-decoration: line-through;
+        padding-bottom: 20px;
+        .sub_product_brutto_price{
+          height: 0;
+          overflow: hidden;
+          transition: .3s ease-in-out;
+          display: block;
+        }
+      }
+      &_amount{
+        font-size: 16px;
+      }
+    }
+    &.three-col{
+      flex-wrap: wrap;
+      flex: 0 0 260px;
+      .sub-product_thumb{
+      }
+      .sub-product_dscr{
+        margin-top: 15px;
+        flex: 0 0 100%;
+        padding-left: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &_name{
+          flex: 0 0 100%;
+          padding-bottom: 0;
+          display: -webkit-box;
+          line-height: 1.6;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 16px;
+          height: 57px;
+          max-height: 57px;
+        }
+        &_price{
+          display: inline-block;
+          order: 3;
+          margin-top: 0;
+          font-size: 16px;
+        }
+        &_amount{
+          display: inline-block;
+          order: 2;
+          font-size: 0;
+          span{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    &.four-col{
+      @extend  .three-col;
+      flex: 0 0 24%;
+      max-width: 260px;
+      .sub-product_thumb{
+        img{
+          min-width: unset;
+        }
+      }
+      .sub-product_dscr{
+        &_amount{
+          flex: 0 0 100%;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    &.five-col{
+      flex-wrap: wrap;
+      flex: 0 0 20%;
+      max-width: 165px;
+      .sub-product_thumb{
+        max-width: 165px;
+        padding-bottom: 10px;
+        img{
+          height: 205px;
+          min-width: 160px;
+        }
+      }
+      .sub-product_dscr{
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &_name{
+          @include ellipsis(16px, 1.6, 2);
+          flex: 0 0 100%;
+          margin-bottom: 10px;
+        }
+        &_price{
+          display: inline-block;
+          order: 3;
+          margin-top: 0;
+        }
+        &_amount{
+          display: inline-block;
+          order: 2;
+          font-size: 0;
+          flex: 0 0 100%;
+        }
+        span{
+          font-size: 16px;
+        }
+      }
+    }
+    &.six-col{
+      @extend .five-col;
+      max-width: unset;
+    }
+    &.four-col-mod2{
+      @extend .three-col;
+      max-width: 200px;
+      margin: 0 auto;
+      &_thumb{
+        img{
+          min-width: 200px;
+          height: 260px;
+        }
+      }
+      .sub-product_dscr{
+        &_amount{
+          flex: 0 0 100%;
+        }
+      }
+      &_dscr{
+        &_price{
+          margin-top: 10px;
+        }
+      }
+
+    }
+  }
+
+
+  @media(max-width: 1124px) {
+    .sub-product{
+      &_dscr{
+        &_name{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @media(max-width: 992px) {
+    justify-content: center;
+    .sub-product{
+      flex-wrap: wrap;
+      &_thumb{
+        margin: 0 auto;
+      }
+      &_dscr{
+        margin-top: 15px;
+        flex: 0 0 100%;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &_name{
+          font-size: 16px;
+          flex: 0 0 100%;
+        }
+        &_price, &_amount{
+          margin-top: 10px;
+          display: inline-block;
+          font-size: 16px;
+          order: 3;
+          span{
+            font-size: 16px;
+          }
+        }
+        &_amount{
+          order: 2;
+        }
+      }
+      &[class*="col"]{
+        .sub-product_dscr{
+          &_price,&_amount{
+            flex: 0 0 100%;
+          }
+        }
+      }
+    }
+    &.three-col-container{
+      .sub-product{
+        &.three-col{
+          flex: 0 0 33%;
+          max-width: 260px;
+          .sub-product_dscr{
+           &_price, &_amount{
+             margin-top: 0;
+           }
+          }
+        }
+      }
+    }
+    &.four-col-container{
+      justify-content: center;
+      gap: 10px;
+      .sub-product{
+        &.four-col{
+          .sub-product_dscr{
+            &_price, &_amount{
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    &.five-col-container{
+      .sub-product{
+        &.five-col{
+          flex: 0 0 30%;
+          max-width: unset;
+          .sub-product_thumb{
+            max-width: unset;
+            img{
+              height: 280px;
+              min-width: 200px;
+            }
+          }
+          .sub-product_dscr{
+            &_price, &_amount{
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    &.second-mod{
+     padding: 0 10px;
+        .sub-product{
+          &_thumb{
+            max-width: 200px ;
+            img{
+              max-width: 160px;
+              height: 260px;
+            }
+          }
+          &_dscr{
+            flex: 1 1;
+            padding-left: 20px;
+            > div{
+              display: block;
+              float: unset;
+            }
+            &_price{
+              margin-top: 10px!important;
+            }
+          }
+        }
+    }
+  }
+  @media(max-width: 880px) {
+    &.three-col-container{
+      .sub-product{
+        &.three-col{
+          max-width: unset;
+          .sub-product_thumb{
+            img {
+              min-width: unset;
+              height: 265px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media(max-width: 768px) {
+    .sub-product{
+      &_dscr{
+        &_amount, &_price{
+          flex: 0 0 100%;
+        }
+      }
+    }
+    &.three-col-container{
+      .sub-product{
+        &.three-col{
+          flex: 0 0 50%;
+          .sub-product_thumb{
+            img {
+              min-width: unset;
+              height: 315px;
+            }
+          }
+        }
+      }
+    }
+    &.five-col-container{
+      .sub-product{
+        &.five-col{
+          flex: 0 0 50%;
+        }
+      }
+    }
+    &.four-col-container{
+      .sub-product{
+        max-width: unset;
+      }
+    }
+    &.six-col-container{
+      .sub-product{
+        .sub-product_thumb{
+          max-width: unset;
+          img {
+            min-width: unset;
+            height: 260px;
+          }
+        }
+      }
+    }
+    &.second-mod{
+      .sub-product{
+
+        &_dscr{
+          flex: 0 0 100%;
+          padding-left: 0;
+          &_price,&_amount{
+            display: inline-block!important;
+            margin-top: 10px;
+          }
+          &_amount{
+            float: right!important;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    &.four-col-container{
+      .sub-product{
+        &.four-col{
+          flex: 0 0 200px;
+        }
+      }
+    }
+    .sub-product{
+      &_thumb{
+        img {
+          min-width: unset;
+          height: 260px;
+        }
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    &.three-col-container{
+      .sub-product{
+        &.three-col{
+          flex: 0 0 45%;
+          .sub-product_thumb{
+            img {
+              height: 260px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  @media (max-width: 520px) {
+    &.four-col-container{
+      .sub-product{
+        &_thumb{
+          img{
+            height: unset;
+          }
+        }
+      }
+    }
+    .sub-product{
+      &_thumb{
+        img {
+          min-width: unset;
+        }
+      }
+      &_dscr{
+        padding-left: 0;
+        &_price{
+          padding-bottom: 5px;
+        }
+        &_amount{
+          float: none;
+          display: block;
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    &.four-col-container{
+      .sub-product {
+        &.four-col {
+          flex: 0 0 260px;
+          max-width: unset;
+          margin: 0 auto;
+          .sub-product_thumb {
+            img {
+              height: 320px;
+            }
+          }
+        }
+      }
+    }
+    &.five-col-container.owl-carousel{
+      .sub-product {
+        &.five-col {
+          margin: 0 auto;
+        }
+      }
+    }
+    &.second-mod{
+      flex-wrap: wrap;
+      padding: 0 10px;
+      justify-content: space-between;
+      .sub-product{
+        flex: 0 0 45%;
+        margin: 0 auto;
+        &_thumb{
+          max-width: 260px;
+          text-align: center;
+            img{
+              min-width: 130px;
+              height: 150px;
+            }
+        }
+      }
+    }
+    &.second-mod.owl-carousel{
+      .sub-product{
+        &.four-col-mod2{
+          max-width: 260px;
+        }
+      }
+    }
+  }
+  @media (max-width: 420px) {
+    &.three-col-container{
+    .sub-product{
+      &.three-col{
+        flex: 0 0 100%;
+        margin: 0 auto;
+        .sub-product_thumb{
+          img {
+            min-width: unset;
+            height: 315px;
+          }
+        }
+      }
+    }
+    }
+  }
+
+}

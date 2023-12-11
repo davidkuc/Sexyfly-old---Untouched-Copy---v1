@@ -1,0 +1,10 @@
+<div class="product-shipment-counter" >
+    <span>{$L_PRODUCT_SHIPMENT_COUNTER_PERIOD}</span>
+    <div class="counter-time core_countDownPromotion"
+        {IF $SHOW_SHIPPING_TIMER_NEXT_DAY > $SHOW_SHIPPING_TIMER}data-showcase="1"{/IF}
+        {IF $SHOW_SHIPPING_TIMER_AFTER_TOMORROW > $SHOW_SHIPPING_TIMER_TOMORROW }data-showcasesecond="2"{/IF}
+        data-countergroup="{IF $SHOW_SHIPPING_TIMER_TOMORROW == '1'}tomorrow{/IF}"
+        data-countdown="{$CURRENT_TIMER}"
+        data-nextcountdown="{IF $SHOW_SHIPPING_TIMER_NEXT_DAY || $SHOW_SHIPPING_TIMER_AFTER_TOMORROW} {$NEXT_TIMER} {ELSE} 0 {/IF}" ></div>
+    <span>{$L_PRODUCT_SHIPMENT_COUNTER_TODAY}</span>
+</div>

@@ -1,0 +1,10 @@
+.close-shape {
+    width: 18px;
+    height: 18px;
+    transition: .25s ease all;
+    &:before, &:after {
+      width: 200%;
+      height: 2px;
+      background: $cross-color;
+    }
+  }

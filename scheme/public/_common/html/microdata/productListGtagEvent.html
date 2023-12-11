@@ -1,0 +1,35 @@
+<script>
+    window.onload = () => {
+        gtagEvent('view_item_list', {
+            item_list_id:
+                {IF !$BREADCRUMB} '',
+        {ELSE}
+        {LOOP FROM=$BREADCRUMB VALUE=CRUMB INDEX=INDEX}
+        {IF $CRUMB.URL != '' && $CRUMB.NAME != "" && $CRUMB.LAST == 1 }'{$CRUMB.URL}',{/IF}
+        {/LOOP}
+            {/IF}
+                item_list_name:
+                {IF !$BREADCRUMB} '{$CATEGORY_NAME}',
+                {ELSE}
+                {LOOP FROM=$BREADCRUMB VALUE=CRUMB INDEX=INDEX}
+                {IF $CRUMB.URL != '' && $CRUMB.NAME != "" && $CRUMB.LAST == 1}'{$CRUMB.NAME}',{/IF}
+                {/LOOP}
+                    {/IF}
+                        item:[
+                            {IF $PRODUCT}
+                            {LOOP FROM=$PRODUCT VALUE=PRODUCT_ITEM}
+                            {
+                                name: '{$PRODUCT_ITEM.name}',
+                                id: {$PRODUCT_ITEM.id},
+                                price: {$PRODUCT_ITEM.price},
+                                item_brand: '{$PRODUCT_ITEM.PRODUCER}',
+                                item_category: '{$PRODUCT_ITEM.PROD_CATS[0].cat_name}',
+                                amount: {$PRODUCT_ITEM.amount},
+                                currency: document.querySelector('body').getAttribute('data-used').split('|')[0]
+                            },
+                            {/LOOP}
+                            {/IF}
+                        ]
+                    })
+    }
+</script>

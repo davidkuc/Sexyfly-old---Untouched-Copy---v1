@@ -1,0 +1,21 @@
+<section class="mobile-search">
+  <span class="title">{$L_SEARCH}</span>
+  <i class="close-shape"></i>
+    <form method="GET" action="/category/#top">
+      <div class="row">
+        <div class="mobile-search-input-wrapper clearbox">
+          <input class="input-field {IF $SEARCH_QUICK_ACTIVE}core_quickSearchAjax{/IF}" type="text" name="q" product-per-page="4" value="{$SEARCH_STRING}" placeholder="{$L_SEARCH_IN_SHOP}" autocomplete="off" {IF $DEBUG}data-ajax-blur="true"{/IF} />
+          <i class="clearbox_button"></i>
+          {IF $SEARCH_DESC_ACTIVE}
+						<input type="hidden" name="desc" value="1" />
+					{/IF}
+        </div>
+        <div class="mobile-search-btn-wrapper">
+          <input type="submit" value="{$L_SEARCH}" class="btn btn-primary btn-block" />
+        </div>
+      </div>
+      {IF $SEARCH_QUICK_ACTIVE}
+        {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/quick-search.html"}
+      {/IF}
+    </form>
+</section>

@@ -1,0 +1,303 @@
+<div class="cart-summary-body summary-finish">
+  <div class="row">
+    <div class="col-xs-12 order-preview">
+      <div class="cart-summary-content">
+        <div class="success-icon">
+          <i class="fa fa-check"></i>
+        </div>
+        <section class="heading inside">
+          <ul>
+            <li class="active">
+              <span class="title">{$L_ORDER_FINAL_TITLE}</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="1 cart-summary-content">
+        <div class="row order-sections">
+          <div class="col-xs-3"></div>
+          <div class="col-xs-12 col-md-6">
+            <div class="cart-summary-content">
+              <div class="row order-sum no-padding"></div>
+              <div class="row order-sum">
+                <div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                      <span><br />{$L_ORDER_CREATE_INFO_TITLE2}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {IF $EMAIL_BODY}
+              <div class="a cart-summary-content">
+                <div class="row order-sum"></div>
+                <div class="row order-sum">
+                  <div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_PAYMENT}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span>{$ORDER.payment.pay_name}</span>
+                        </span>
+                      </div>
+                    </div>
+                    {IF $SHOW_DATA_TO_PAYMENT}
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_COMPANY_NAME_TO_PAYMENT}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span>{$EMAIL_DATA.COMPANY_NAME}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_COMPANY_ADDRESS_TO_PAYMENT}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span>{$EMAIL_DATA.ADRESSES}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_TRANSFER_TITLE}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span>{$TRANSFER_TITLE_LANG}</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="E row">
+                      <div class="col-xs-6 col-xxs-12">
+                        <span class="pull-left">{$L_ACCOUNT_NUMBER_FOR_TRANSFER}:</span>
+                      </div>
+                      <div class="B col-xs-6 col-xxs-12">
+                        <span class="pull-right text-right">
+                          <span>{$EMAIL_DATA.BANK_ACCOUNT}</span>
+                        </span>
+                      </div>
+                    </div>
+                    {/IF}
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_PAY_AMOUNT}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span class="core_priceFormat" data-price="{$ORDER.ord_sum}">{$ORDER.ord_sum}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {ELSE}
+              {IF $PAY_BY_DELIVERY_INFO}
+                <div class="cart-summary-content">
+                  <div class="row order-sum"></div>
+                  <div class="row order-sum">
+                    <div>
+                      <div class="row">
+                        <div class="col-xs-12 text-center">
+                          <span><br />{$PAY_BY_DELIVERY_INFO}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {/IF}
+            {/IF}
+          </div>
+          <div class="col-xs-3"></div>
+        </div>
+      </div>
+      <div class="cart-summary-content">
+        <section class="heading inside">
+          <ul>
+            <li class="active">
+              <span class="title">{$L_CART_PRODUCTS_LIST}</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="cart-summary-content">
+        <div class="row">
+          <div class="col-xs-3"></div>
+          <div class="col-xs-12 col-md-6">
+            <div>
+              <div class="row">
+                <table class="products-list core_storeCartProducts">
+                  <tbody>
+                  <tr
+                          class="product-list-item-template hidden"
+                          data-id="{{:id:}}"
+                          data-hash="{{:hash:}}"
+                          data-amount="{{:amount:}}"
+                          data-price="{{:price:}}"
+                          data-tax="{{:tax:}}"
+                          data-options="{{:options_string:}}"
+                  >
+                    <td class="product-img">
+                      {{:image_tag:}}
+                    </td>
+                    <td class="product-info">
+                      <span class="title">{{:name:}}</span>
+                      <span class="details">
+                    {{:options_details:}}
+                </span>
+                    </td>
+                    <td class="product-qty hidden-on-mobile">
+                      <span>{{:amount:}}</span>
+                    </td>
+                    <td class="product-price hidden-on-mobile">
+                      {{:formatted_price:}}
+                    </td>
+                    <td class="hidden-on-desktop product-view-mobile">
+                      <div class="product-qty">{{:amount:}}&nbsp;</div>
+                      <div class="product-price">
+                        {{:formatted_price:}}
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="cart-summary-content">
+              <div class="row order-sum">
+                <div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <span class="pull-left">{$L_ORDER_PRODUCTS_PRICE}:</span>
+                    </div>
+                    <div class="col-xs-6">
+                      <span class="pull-right text-right">
+                        <span class="core_priceFormat" data-price="{$ORDER.ord_prods_price}">{$ORDER.ord_prods_price}</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <span class="pull-left">{$L_SHIPPING_PRICE}:</span>
+                    </div>
+                    <div class="col-xs-6">
+                      <span class="pull-right text-right">
+                        <span class="core_priceFormat" data-price="{$ORDER.ord_ship_price}">{$ORDER.ord_ship_price}</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <span class="pull-left">{$L_SHIPMENT}:</span>
+                    </div>
+                    <div class="col-xs-6">
+                      <span class="pull-right text-right">
+                        <span>{$ORDER.shipment.sh_name}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row order-sum upper">
+                <div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <span class="pull-left">{$L_TOTAL_VALUE}:</span>
+                    </div>
+                    <div class="col-xs-6">
+                      <span class="pull-right text-right">
+                        <span class="core_priceFormat" data-price="{$ORDER.ord_sum}">{$ORDER.ord_sum}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3"></div>
+        </div>
+      </div>
+      {IF $LOGGED_IN && $LOYALTY_PROGRAM && $LOGGED_IN}
+        <div class="cart-summary-content">
+          <section class="heading inside">
+            <ul>
+              <li class="active">
+                <span class="title">{$L_LOYALTY_PROGRAM}</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="cart-summary-content">
+          <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-12 col-md-6">
+              <div class="cart-summary-content">
+                <div class="row order-sum no-padding"></div>
+                <div class="row order-sum">
+                  <div>
+                    <div class="hidden points-for-order row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_YOU_WILL_RECEIVE_THE_ORDER}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                      <span class="pull-right">
+                        <span class="points-count">{$COUNT_GET_POINTS_IN_ORDER}</span>
+                      </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="pull-left">{$L_YOU_WILL_USE_THE_ORDER}:</span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="pull-right text-right">
+                          <span>{$USED_POINTS}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-3"></div>
+          </div>
+        </div>
+      {/IF}
+      {IF $PAY_ONLINE_HTML_DATA}
+        <div class="cart-summary-content">
+          <section class="heading inside">
+            <ul>
+              <li class="active">
+                <span class="title">{$L_PAYMENT}</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="cart-summary-content">
+          <div class="row order-sections">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-12 col-md-6 text-center">
+              {$PAY_ONLINE_HTML_DATA}
+              <script>
+                (function(){
+                  if(document.querySelector('button.paypal-button')){
+                    document.querySelector('button.paypal-button').click();
+                  }
+                })();
+              </script>
+            </div>
+            <div class="col-xs-3"></div>
+          </div>
+        </div>
+      {/IF}
+    </div>
+  </div>
+</div>

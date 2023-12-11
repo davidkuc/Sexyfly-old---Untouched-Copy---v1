@@ -1,0 +1,13 @@
+// Sets - hide sub products details in cart.
+.cart-table tr[data-parent-hash] {
+  .product-name {
+    padding-left: 30px !important;
+  }
+  .product-img, .product-price, .product-count, .product-total, .product-actions {
+    visibility: hidden;
+  }
+}
+
+.core_toggleSubProducts {
+  cursor: pointer;
+}

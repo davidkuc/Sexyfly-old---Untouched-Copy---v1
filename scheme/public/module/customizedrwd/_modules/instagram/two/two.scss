@@ -1,0 +1,20 @@
+.instagram-modul.mod-instagram-2{
+  max-width: $pageWidth;
+  width: 100%;
+  padding: 25px 0;
+  margin: 0 auto;
+  @import "../_common/scss/_instagram_post.scss";
+  .instagram-modul-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: auto;
+    padding: 0 30px;
+    @import "../_common/scss/_utils_instagram.scss";
+    .instagram-modul-col{
+      flex-basis: 20%;
+    }
+  }
+}

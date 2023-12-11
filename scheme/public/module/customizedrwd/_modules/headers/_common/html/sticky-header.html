@@ -1,0 +1,26 @@
+<div class="sticky-header__wrapper">
+    <a href="/" class="sticky-header_content__logo">
+        <img src="{$MODULE.children.common_shop_logo[0].props.preview}" alt="{IF $MODULE.children.logo_alt[0].props.value} {$MODULE.children.logo_alt[0].props.value} {ELSE} {$LOGO_ALT} {/IF}" />
+    </a>
+    <section class="sticky-header_content__menu smart-menu" data-action="inline">
+         <ul class="sticky-header_content__menu_list">
+            {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/main-menu.html"}
+             <li class="hamburger {IF $MENU_SHOW_TYPE == 'click'}click{/IF} sticky-hamburger">
+                                        <a href="#">
+                                            <i class="fa fa-bars"></i>
+                                        </a>
+                                        <div class="dropdown">
+                                            <div class="row">
+                                                <div class="col-xs-12 smart-menu">
+                                                    <ul class="hambureger-elements"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+         </ul>
+    </section>
+    <section class="sticky-header_content__nav">
+        {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/inline-nav.html"}
+    </section>
+</div>
+
