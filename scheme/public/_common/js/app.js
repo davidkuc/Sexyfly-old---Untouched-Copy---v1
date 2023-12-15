@@ -3824,3 +3824,14 @@ const initSmartMenu = (menuElement) => {
 $(document).on('ready',function(){
   document.querySelectorAll('.smart-menu').forEach(menu => initSmartMenu(menu));
 });
+
+$('#categoryCarousel').slick({
+  slidesToShow: 3,
+  slidesToScroll: 2,
+  infinite: true,
+  speed: 200,
+  centerMode: true,
+  autoplay: true,
+  arrows: false,
+  variableWidth: true
+});

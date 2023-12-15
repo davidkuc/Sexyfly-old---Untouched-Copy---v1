@@ -1,3 +1,5 @@
+@import url("/view/_custom/z_pn494/scheme/public/module/customizedrwd/_modules/banners/three/categories-slider/slick.css");
+
 .banner.mod-banner-3 {
   max-width: $pageWidth;
   width: 100%;
@@ -19,7 +21,6 @@
     & img {
       width: auto;
       height: 100%;
-      position: absolute;
       left: 50%;
       @include transform(translateX(-50%));
       @media(max-width:1920px){
@@ -41,4 +42,36 @@
       }
     }
   }
+}
+
+.categorySlide{
+  border: 2px solid #ED6082;
+  border-radius: 10px;
+  text-align: center;
+  height: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.categorySlide img{
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+  max-width: 96px;
+  top: 25px;
+}
+
+.categorySlideName{
+  background-color: #ED6082;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  position: relative;
+  top: 56px;
+}
+
+.sectionName {
+  
 }

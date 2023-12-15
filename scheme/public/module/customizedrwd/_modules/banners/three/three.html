@@ -8,7 +8,7 @@
               <a href="{$CHILDREN.props.value}">
             {/IF}
           {/LOOP}
-            <img src="{$MODULE.children.banner1Field[0].children[0].props.preview}" {LOOP FROM=$MODULE.children.banner1Field[0].children VALUE=CHILDREN}{IF $CHILDREN.key == 'banner_alt' && $CHILDREN.props.value}alt="{$CHILDREN.props.value}"{/IF}{/LOOP} />
+          {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/banners/three/categories-slider/categories-slider.html"}          
           {LOOP FROM=$MODULE.children.banner1Field[0].children VALUE=CHILDREN}
             {IF $CHILDREN.key == 'banner_link' && $CHILDREN.props.value}
               </a>
