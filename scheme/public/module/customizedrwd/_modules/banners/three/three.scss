@@ -35,7 +35,6 @@
       width: 100%;
       margin: 0 auto;
       max-width: 1920px;
-      padding-bottom: 33.8546%;
       @media(min-width:1920px){
         height: 650px;
         padding-bottom: 0;
@@ -72,6 +71,31 @@
   top: 56px;
 }
 
-.sectionName {
-  
+.products-actualization-banner {
+  width: auto;
+}
+
+.products-actualization-text-container {
+  width: auto;
+  position: absolute;
+  top: 265px;
+  left: 50%;
+}
+
+.products-actualization-text {
+  position: relative;
+  left: -50%;
+  border: 1px solid #ed6082;
+  border-radius: 15px;
+  padding: 0px 8px 0px 8px;
+  background-color: white;
+  min-width: 12.64rem;
+}
+
+.pink-waves-bg-container {
+  width: auto;
+}
+
+.pink-waves-bg-img {
+  width: 100%;
 }
