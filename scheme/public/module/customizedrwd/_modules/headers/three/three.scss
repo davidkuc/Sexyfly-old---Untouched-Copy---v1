@@ -19,7 +19,7 @@
 
   .header_inner_wrapper {
     .header_middle_content {
-      padding: $header-middle-content-padding-mid 0px;
+      padding: 5px 0px 20px 0px;
 
       .header_middle_content_inner_wrapper {
         display: block;
@@ -33,19 +33,19 @@
 
         .header_middle_content_menu_button_container {
           display:flex;
-          font-size: 0.8rem;
+          font-size: 1.2rem;
         }
 
         .header_middle_content_logo {
           font-family: playlistscript;
-          font-size: 30px;
+          font-size: 3.2rem;
         }
 
         .header_middle_content_menu_button_account_cart {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 45px;
+          width: 65px;
         }
 
         .header_middle_content_quick_cart_wrapper{
@@ -118,7 +118,7 @@
   #header.mod-header-3 {
     .header_inner_wrapper {
       .header_middle_content {
-        padding: 20px 0px;
+        padding: 5px 0px 20px 0px;
         .header_middle_content_inner_wrapper {
           padding: 0px 5px;
           justify-content: flex-start;
@@ -156,7 +156,7 @@
     #header.mod-header-3 {
       .header_inner_wrapper {
         .header_middle_content {
-          padding: 20px 0px;
+          padding: 5px 0px 20px 0px;
 
           .header_middle_content_inner_wrapper {
             padding: 0px 5px;
