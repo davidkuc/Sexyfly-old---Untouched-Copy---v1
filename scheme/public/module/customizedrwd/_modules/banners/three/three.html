@@ -4,23 +4,133 @@
       <div class="col-xs-12">
         <div class="slider-img-1">
           {LOOP FROM=$MODULE.children.banner1Field[0].children VALUE=CHILDREN}
+          {IF $CHILDREN.key == 'banner_link' && $CHILDREN.props.value}
+          <a href="{$CHILDREN.props.value}">
+            {/IF} {/LOOP} {INCLUDE
+            file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/banners/three/categories-slider/categories-slider.html"}
+            {LOOP FROM=$MODULE.children.banner1Field[0].children VALUE=CHILDREN}
             {IF $CHILDREN.key == 'banner_link' && $CHILDREN.props.value}
-              <a href="{$CHILDREN.props.value}">
-            {/IF}
-          {/LOOP}
-          {INCLUDE file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/banners/three/categories-slider/categories-slider.html"}          
-          {LOOP FROM=$MODULE.children.banner1Field[0].children VALUE=CHILDREN}
-            {IF $CHILDREN.key == 'banner_link' && $CHILDREN.props.value}
-              </a>
-            {/IF}
-          {/LOOP}
+          </a>
+          {/IF} {/LOOP}
         </div>
         <div class="products-actualization-banner">
           <div class="pink-waves-bg-container">
-            <img class="pink-waves-bg-img" src="/view/_custom/z_pn494/img/banner-3/pink-waves-bg.png">
+            <img
+              class="pink-waves-bg-img"
+              src="/view/_custom/z_pn494/img/banner-3/pink-waves-bg.png"
+            />
             <div class="products-actualization-text-container">
               <div class="products-actualization-text">
                 AKTUALIZACJA PRODUKTÓW
+              </div>
+            </div>
+            <div class="new-stuff-text">
+              Nowości
+              <div class="new-stuff-seperator-line"></div>
+            </div>
+            <div class="woman-container">
+              <div class="woman-blur-bg">
+                <img
+                  src="/view/_custom/z_pn494/img/banner-3/banner-woman-blur.png"
+                />
+                <div class="woman-img-container">
+                  <img
+                    src="/view/_custom/z_pn494/img/banner-3/banner-woman.png"
+                  />
+                  <div class="banner-text-container">
+                    <div class="white-banner-text-1">-25%</div>
+                    <div class="white-banner-text-2">NA BIELIZNĘ</div>
+                    <div class="pink-banner-text">DLA NIEJ</div>
+                  </div>
+                  <div class="woman-three-dots-container">
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_white.png"
+                    />
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_pink.png"
+                    />
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_white.png"
+                    />
+                  </div>
+                  <div class="check-button-container">
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/button_outline.png"
+                    />
+                    <a href="/" class="check-button">
+                      <img
+                        src="/view/_custom/z_pn494/img/banner-3/button_pink_gradient.png"
+                      />
+                      <div class="check-button-text">SPRAWDŹ</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ribbons-container">
+              <div class="ribbons">
+                <div class="ribbon">
+                  <img src="/view/_custom/z_pn494/img/banner-3/bookmark.png" />
+                  <div class="ribbon-text">NOWY ASORTYMENT</div>
+                </div>
+                <div class="ribbon">
+                  <img src="/view/_custom/z_pn494/img/banner-3/box.png" />
+                  <div class="ribbon-text">BŁYSKAWICZNA DOSTAWA</div>
+                </div>
+              </div>
+            </div>
+            <div class="fifteen_discount_container">
+              <div class="fifteen_discount_img">
+                <img
+                  src="/view/_custom/z_pn494/img/banner-3/15_proc_rabat.png"
+                />
+              </div>
+            </div>
+            <div class="title-ribbon-container">
+              <div class="title-ribbon">WIBRATORY</div>
+            </div>
+            <div class="vibrator-container">
+              <div class="vibrator-blur-bg">
+                <img
+                  src="/view/_custom/z_pn494/img/banner-3/banner-vibrator-blur.png"
+                />
+                <div class="vibrator-img-container">
+                  <img
+                    src="/view/_custom/z_pn494/img/banner-3/banner-vibrator.png"
+                  />
+                  <div class="vibrator-three-dots-container">
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_white.png"
+                    />
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_pink.png"
+                    />
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/dot_white.png"
+                    />
+                  </div>
+                  <div class="check-button-container">
+                    <img
+                      src="/view/_custom/z_pn494/img/banner-3/button_outline.png"
+                    />
+                    <a href="/" class="check-button">
+                      <img
+                        src="/view/_custom/z_pn494/img/banner-3/button_pink_gradient.png"
+                      />
+                      <div class="check-button-text">SPRAWDŹ</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vibrator-title-text-container">
+              <div class="vibrator-title-text">Wibratory</div>
+            </div>
+            <div class="vibrator-desc-text-container">
+              <div class="vibrator-desc-text-img">
+                <img
+                  src="/view/_custom/z_pn494/img/banner-3/vibrator-desc-text.png"
+                />
               </div>
             </div>
           </div>

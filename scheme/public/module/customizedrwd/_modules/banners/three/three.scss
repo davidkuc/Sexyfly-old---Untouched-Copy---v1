@@ -98,8 +98,196 @@
 
 .pink-waves-bg-container {
   width: auto;
+  height: 1750px;
 }
 
 .pink-waves-bg-img {
   width: 100%;
+  height: 100%;
+}
+
+.new-stuff-text {
+  position: absolute;
+  top: 320px;
+  left: 10%;
+  color: white;
+  font-size: 1.7rem;
+}
+
+.new-stuff-seperator-line {
+  width: 70px;
+  height: 6px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.woman-container {
+  position: absolute;
+  top: 384px;
+  left: 50%;
+}
+
+.woman-blur-bg {
+  position: relative;
+  left: -50%;
+}
+
+.woman-img-container {
+  position: absolute;
+  top: 17px;
+  left: 14px;
+}
+
+.banner-text-container {
+  position: absolute;
+  top: 115px;
+  left: 158px;
+
+  .white-banner-text-1 {
+    color: white;
+    font-size: 20px;
+  }
+
+  .white-banner-text-2 {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    width: 183px;
+    top: -12px;
+  }
+
+  .pink-banner-text {
+    font-size: 36px;
+    position: relative;
+    top: -29px;
+  }
+}
+
+.woman-three-dots-container {
+  position: absolute;
+  top: 348px;
+  left: 30px;
+}
+
+.check-button-container {
+  position: relative;
+  top: -75px;
+  left: 154px;
+
+  .check-button {
+    position: absolute;
+    top: -8px;
+    left: -10px;
+
+    .check-button-text {
+      color: white;
+      position: absolute;
+      top: 12px;
+      left: 44px;
+      font-size: 17px;
+      text-shadow: 1px 1px black;
+    }
+  }
+}
+
+.ribbons-container {
+  position: absolute;
+  top: 806px;
+  left: 50%;
+
+  .ribbons {
+    position: relative;
+    left: -50%;
+
+    .ribbon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    align-items: center;
+    background-color: white;
+    border-radius: 100px;
+    width: 287px;
+    height: 70px;
+    font-size: 15px;
+    }
+  }
+}
+
+.fifteen_discount_container {
+  position: absolute;
+  top: 983px;
+  left: 50%;
+
+  .fifteen_discount_img {
+    position: relative;
+    left: -50%;
+  }
+}
+
+.title-ribbon-container {
+  position: absolute;
+  top: 1275px;
+  left: 50%;
+}
+
+.title-ribbon {
+  position: relative;
+  left: -50%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  background-color: white;
+  border-radius: 100px;
+  width: 287px;
+  height: 20px;
+  font-size: 15px;
+}
+
+.vibrator-container {
+  position: absolute;
+  top: 1330px;
+  left: 50%;
+}
+
+.vibrator-blur-bg {
+  position: relative;
+  left: -50%;
+}
+
+.vibrator-img-container {
+  position: absolute;
+  top: 17px;
+  left: 5px;
+}
+
+.vibrator-three-dots-container {
+  position: absolute;
+  top: 300px;
+  left: 30px;
+}
+
+.vibrator-title-text-container {
+  position: absolute;
+  top: 1380px;
+  left: 50%;
+}
+
+.vibrator-title-text {
+  position: relative;
+  top: 320px;
+  left: -50%;
+  color: white;
+  font-family: playlistscript;
+  font-size: 2rem;
+}
+
+.vibrator-desc-text-container {
+  position: absolute;
+  top: 1755px;
+  left: 50%;
+}
+
+.vibrator-desc-text-img {
+  position: relative;
+  left: -50%;
 }
