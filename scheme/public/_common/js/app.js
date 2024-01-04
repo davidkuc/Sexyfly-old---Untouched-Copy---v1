@@ -3835,3 +3835,10 @@ $('#categoryCarousel').slick({
   arrows: false,
   variableWidth: true
 });
+
+$('#bdsm-show-all').on('click', function(e){
+  e.preventDefault()
+  $('#hidden-bdsm-categories-list').toggleClass("bdsm-categories-list-active");
+  $('#bdsm-show-all').toggleClass("show-all-button-hidden");
+  $('#bdsm-section-background').toggleClass("bdsm-section-bg-container-higher");
+});

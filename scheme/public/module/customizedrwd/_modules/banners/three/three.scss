@@ -291,3 +291,111 @@
   position: relative;
   left: -50%;
 }
+
+.bdsm-section-banner {
+  width: auto;
+
+  .bdsm-section-bg-container {
+    width: auto;
+    height: 1200px;
+
+    .bdsm-section-bg-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .bdsm-section-text-container {
+      width: auto;
+      position: absolute;
+      top: 2012px;
+      left: 50%;
+    
+        .bdsm-section-text {
+          position: relative;
+          left: -50%;
+          color: #AD83F2;
+          border: 1px solid #AD83F2;
+          border-radius: 15px;
+          padding: 0px 8px 0px 8px;
+          background-color: white;
+          min-width: 12.64rem;
+          text-align: center;
+        }
+    }
+
+    .bdsm-banner-img-1-container {
+      position: absolute;
+      left: 50%;
+      top: 2054px;
+
+      .bdsm-banner-img-1 {
+        position: relative;
+        left: -50%;
+      }
+    }
+
+    .bdsm-categories-list-container {
+      position: absolute;
+      left: 50%;
+      top: 2435px;
+
+      .bdsm-categories-list {
+        position: relative;
+        left: -50%;
+        display: flex;
+        min-width: 325px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .bdsm-categories-list-hidden {
+        display: none;
+        position: relative;
+        left: -50%;
+        min-width: 325px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .bdsm-category {
+        color: white;
+        background-color: #AD83F2;
+        border-radius: 15px;
+        text-align: center;
+        padding: 14px 30px;
+        margin: 17px 12px;
+      }
+
+      .bdsm-categories-list-active {
+        display:flex;
+      }
+
+      .show-all-button-container {
+
+        .show-all-button {
+          color: #AD83F2;
+        }
+
+        .show-all-button-hidden {
+          display: none;
+        }
+      }
+
+      .bdsm-products-slider-container {
+        position: relative;
+        left: -50%;
+        padding-top: 50px;
+
+        .bdsm-products-slider {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .bdsm-section-bg-container-higher {
+    height: 1740px;
+  }
+}
+
