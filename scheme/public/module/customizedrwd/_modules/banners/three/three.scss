@@ -362,22 +362,18 @@
         background-color: #AD83F2;
         border-radius: 15px;
         text-align: center;
-        padding: 14px 30px;
-        margin: 17px 12px;
+        padding: 15px 14px;
+        margin: 11px 4px;;
       }
 
       .bdsm-categories-list-active {
         display:flex;
       }
 
-      .show-all-button-container {
+      .bdsm-show-all-button-container {
 
-        .show-all-button {
+        .bdsm-show-all-button {
           color: #AD83F2;
-        }
-
-        .show-all-button-hidden {
-          display: none;
         }
       }
 
@@ -395,7 +391,151 @@
   }
 
   .bdsm-section-bg-container-higher {
-    height: 1740px;
+    height: 1440px;
+  }
+}
+
+.show-all-button-hidden {
+  display: none;
+}
+
+.erotic-pharmacy-banner {
+  width: auto;
+
+  .erotic-pharmacy-bg-container {
+    width: auto;
+    height: 1900px;
+
+    .erotic-pharmacy-content {
+      position: relative;
+      top: -5122px;
+    }
+
+    .erotic-pharmacy-bg-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .producer-month-banner-container {
+      position: absolute;
+      left: 50%;
+      top: 3222px;
+      width: 350px;
+
+      .producer-month-banner-1-img {
+        position: relative;
+        left: -50%;
+      }
+
+      .producer-month-banner-2-img {
+        position: relative;
+        left: -50%;
+      }
+
+      .producer-month-banner-3-img {
+        position: relative;
+        left: 69px;
+        top: -248px;
+      }
+    }
+
+    .producer-month-text-container {
+      width: auto;
+      position: absolute;
+      top: 3213px;
+      left: 50%;
+
+      .producer-month-text {
+        position: relative;
+        left: -50%;
+        color: #762B42;
+        border: 1px solid white;
+        border-radius: 15px;
+        padding: 0px 8px 0px 8px;
+        background-color: white;
+        min-width: 12.64rem;
+        text-align: center;
+      }
+    }
+
+    .producer-month-check-offer-button {
+      color: white;
+      background-color: #ff83a1;
+      border-radius: 40px;
+      text-align: center;
+      padding: 14px 22px;
+      position: relative;
+      top: -95px;
+      left: -68px;
+      box-shadow: 1px 2px 5px -2px black;
+    }
+
+    .erotic-pharmacy-banner-container {
+      position: absolute;
+      left: 50%;
+      top: 3940px;
+
+      .erotic-pharmacy-banner-img {
+        position: relative;
+        left: -50%;
+      }
+    }
+
+    .erotic-pharmacy-text-container {
+      width: auto;
+      position: absolute;
+      top: 3935px;
+      left: 50%;
+
+      .erotic-pharmacy-text {
+        position: relative;
+        left: -50%;
+        color: #D15882;
+        border: 1px solid #ED6082;
+        border-radius: 15px;
+        padding: 0px 8px 0px 8px;
+        background-color: white;
+        min-width: 12.64rem;
+        text-align: center;
+      }
+    }  
+    
+    .erotic-pharmacy-categories-container {
+      position: absolute;
+      left: 50%;
+      top: 4300px;
+
+      .erotic-pharmacy-categories-list {
+        position: relative;
+        left: -50%;
+        display: flex;
+        min-width: 325px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .erotic-pharmacy-categories-list-hidden {
+        position: relative;
+        left: -50%;
+        display: none;
+        min-width: 325px;
+        flex-wrap: wrap;
+        justify-content: center;   
+      }
+
+      .erotic-pharmacy-categories-list-active {
+        display: flex;
+      }
+
+      .erotic-pharmacy-category {
+        color: white;
+        background-color: #FF83A0;
+        border-radius: 15px;
+        text-align: center;
+        padding: 15px 14px;
+        margin: 11px 4px;;
+      }
+    }
   }
 }
 

@@ -3842,3 +3842,9 @@ $('#bdsm-show-all').on('click', function(e){
   $('#bdsm-show-all').toggleClass("show-all-button-hidden");
   $('#bdsm-section-background').toggleClass("bdsm-section-bg-container-higher");
 });
+
+$('#erotic-pharmacy-show-all').on('click', function(e){
+  e.preventDefault()
+  $('#hidden-erotic-pharmacy-categories-list').toggleClass("erotic-pharmacy-categories-list-active");
+  $('#erotic-pharmacy-show-all').toggleClass("show-all-button-hidden");
+});
