@@ -3847,4 +3847,5 @@ $('#erotic-pharmacy-show-all').on('click', function(e){
   e.preventDefault()
   $('#hidden-erotic-pharmacy-categories-list').toggleClass("erotic-pharmacy-categories-list-active");
   $('#erotic-pharmacy-show-all').toggleClass("show-all-button-hidden");
+  $('#erotic-pharmacy-background-container').toggleClass("erotic-pharmacy-bg-container-higher");
 });
