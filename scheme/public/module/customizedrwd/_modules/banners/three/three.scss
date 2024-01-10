@@ -404,7 +404,7 @@
 
   .erotic-pharmacy-bg-container {
     width: auto;
-    height: 1300px;
+    height: 1350px;
 
     .erotic-pharmacy-content {
       position: relative;
@@ -540,6 +540,61 @@
 
   .erotic-pharmacy-bg-container-higher {
     height: 1550px;
+  }
+}
+
+.gift-idea-banner {
+  width: auto;
+
+  .gift-idea-banner-bg-container {
+    width: auto;
+    height: 1300px;
+
+    .gift-idea-banner-bg-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .gift-idea-content {
+      position: relative;
+      top: -4112px;
+
+      .gift-idea-text-container {
+        width: auto;
+        position: absolute;
+        top: 3495px;
+        left: 50%;
+
+        .gift-idea-text {
+          position: relative;
+          left: -50%;
+          color: #d15882;
+          border: 1px solid #ed6082;
+          border-radius: 15px;
+          padding: 0px 8px 0px 8px;
+          background-color: white;
+          min-width: 12.64rem;
+          text-align: center;
+        }
+      }
+
+      .gift-idea-banner-img-container {
+        position: absolute;
+        left: 50%;
+        top: 3545px;
+
+        .gift-idea-banner-img-1 {
+          position: relative;
+          left: -45%;
+        }
+
+        .gift-idea-banner-img-2 {
+          position: relative;
+          left: -50%;
+          top: 9px;
+        }
+      }
+    }
   }
 }
 
