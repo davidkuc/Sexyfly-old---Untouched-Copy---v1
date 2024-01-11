@@ -552,7 +552,7 @@
 
   .gift-idea-banner-bg-container {
     width: auto;
-    height: 1300px;
+    height: 700px;
 
     .gift-idea-banner-bg-img {
       width: 100%;
@@ -561,7 +561,9 @@
 
     .gift-idea-content {
       position: relative;
-      top: -4802px;
+      top: -4202px;
+      display: flex;
+      justify-content: center;
 
       .gift-idea-text-container {
         width: auto;
@@ -597,6 +599,66 @@
           left: -50%;
           top: 9px;
         }
+      }
+
+      .gift-idea-see-all-button-container {
+        position: relative;
+        top: 4105px;
+
+        .gift-idea-see-all-button {
+          color: white;
+          background-color: #ff83a0;
+          border-radius: 15px;
+          text-align: center;
+          padding: 15px 14px;
+          margin: 11px 4px;
+          width: fit-content;
+        }
+      }
+    }
+  }
+}
+
+.producers-banner {
+
+  .producers-content {
+    display: flex;
+    height: 160px;
+    flex-direction: column;
+    align-items: center;
+
+    .producers-text {
+      color: #D15882;
+      font-size: 1.3rem;
+      padding: 20px 5px;
+    }
+
+    .producers-slider-container {
+
+      .producers-slider-producer {
+        font-size: 1.8rem;
+        border: 2px solid #ED6082;
+        border-radius: 10px;
+        padding: 15px 15px;
+      }
+    }
+
+    .producers-slider-slidebar-container {
+      padding: 25px 0px;
+
+      .producers-slider-slidebar {
+        background-color: grey;
+        width: 285px;
+        height: 3px;
+      }
+
+      .producers-slider-slidebar-selection {
+        background-color: #ED6082;
+        width: 28.5px;
+        height: 3px;
+        position: relative;
+        top: -3px;
+        left: 0px;
       }
     }
   }
