@@ -3856,6 +3856,16 @@ $('#erotic-pharmacy-show-all').on('click', function(e){
   e.preventDefault()
   $('#hidden-erotic-pharmacy-categories-list').toggleClass("erotic-pharmacy-categories-list-active");
   $('#erotic-pharmacy-show-all').toggleClass("show-all-button-hidden");
+  $('#erotic-pharmacy-close-all').toggleClass("show-all-button-active");
+  $('#erotic-pharmacy-background-container').toggleClass("erotic-pharmacy-bg-container-higher");
+  $('#erotic-pharmacy-content-id').toggleClass("erotic-pharmacy-content-expand");
+});
+
+$('#erotic-pharmacy-close-all').on('click', function(e){
+  e.preventDefault()
+  $('#hidden-erotic-pharmacy-categories-list').toggleClass("erotic-pharmacy-categories-list-active");
+  $('#erotic-pharmacy-show-all').toggleClass("show-all-button-hidden");
+  $('#erotic-pharmacy-close-all').toggleClass("show-all-button-active");
   $('#erotic-pharmacy-background-container').toggleClass("erotic-pharmacy-bg-container-higher");
   $('#erotic-pharmacy-content-id').toggleClass("erotic-pharmacy-content-expand");
 });
