@@ -1,89 +1,96 @@
 #footer.mod-footer-2 {
-  max-width: $pageWidth;
-	width: 100%;
-	margin: 25px auto 0;
-  padding: 25px 0;
-  background: $backgroundColorFooter;
-  color: $footerTextColor;
-  display: inline-block;
-  &.full-width {
-    max-width: 100%;
-  }
-  @import "../_common/scss/_footer_container_1.scss";
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  height: 450px;
 }
 @import "../_common/scss/_footer_rights.scss";
 
-@media all and (min-width: 768px) {
-  #footer.mod-footer-2 {
-    & .footer-container {
-      & .menu {
-        display: block !important;
-      }
-    }
-  }
-}
-
 @media all and (max-width: 767px) {
   #footer.mod-footer-2 {
-    & .footer-container {
-      & .mobile-logo {
-        display: block;
-        text-align: center;
-        padding: 0 0 25px;
-        & img {
-          max-width: 180px;
-        }
-      }
-      & .logo {
-        display: none;
-      }
-      & [class*='col-'] {
-        margin-bottom: 5px;
-      }
-      & .section-title {
-        width: 100%;
-        padding: 5px 15px;
-        background: rgba($fontColor,1/10);
+  
+    .footer-bg-img {
+      position: absolute;
+      width: 130%;
+      height: 100%;
+      min-width: 430px;
+      left: -99px;
+    }
+
+    .footer-content {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      left: 50%;
+      top: 40px;
+
+      .footer-logo-a {
         position: relative;
-        @include transition(background 0.2s ease-in-out);
-        &:after {
-          content: '\f107';
-          font-family: 'FontAwesome';
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          @include transform(translateY(-50%) rotate(0deg));
-          @include transition(transform 0.2s ease-in-out);
-        }
-        &.open {
-          background: $mainColor;
-          @include transition(background 0.2s ease-in-out);
-          &:after {
-            @include transform(translateY(-50%) rotate(-180deg));
-            @include transition(transform 0.2s ease-in-out);
-          }
-        }
-        &.center {
-          background: transparent;
-          padding: 25px 15px 5px;
-          &:after {
-            content: '';
-            display: none;
-          }
+        left: -50%;
+
+        .footer-logo {
+          color: black;
+          font-family: playlistscript;
+          font-size: 3.2rem;
         }
       }
-      & .menu {
-        display: none;
-        overflow: hidden;
-        padding: 5px 15px;
-        & li {
-          & .row {
-            & [class*='col-'] {
-              &:first-of-type {
-                padding-left: 0;
-              }
-            }
-          }
+
+      .footer-links-container {
+        position: relative;
+        left: -50%;
+        top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .footer-link {
+          color: black;
+          padding: 10px 0px;
+        }
+      }
+
+      .footer-buttons-container {
+        position: relative;
+        left: -50%;
+        top: 45px;
+        display: flex;
+        justify-content: space-between;
+        width: 260px;
+
+        .footer-button {
+          border: 2px solid #ED6082;
+          border-radius: 15px;
+          width: 115px;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      .footer-payment-methods-container {
+        position: relative;
+        left: -50%;
+        top: 80px;
+        width: 300px;
+
+        .footer-payment-method-img {
+          margin: 11px;
+        }
+      }
+
+      .footer-copyright-container {
+        position: relative;
+        left: -50%;
+        top: 92px;
+        display: flex;
+
+        .footer-copyright-img {
+          width: 12px;
+          height: 12px;
+        }
+
+        .footer-copyright-text {
+          color: #333333;
         }
       }
     }
