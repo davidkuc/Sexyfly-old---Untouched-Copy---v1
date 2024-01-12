@@ -374,6 +374,13 @@
 
         .bdsm-show-all-button {
           color: #AD83F2;
+          padding-left: 25px;
+        }
+
+        .bdsm-close-all-button {
+          color: #AD83F2;
+          display: none;
+          padding-left: 65px;
         }
       }
 
@@ -390,12 +397,16 @@
   }
 
   .bdsm-section-bg-container-higher {
-    height: 1380px;
+    height: 1400px;
   }
 }
 
 .show-all-button-hidden {
   display: none;
+}
+
+.show-all-button-active {
+  display: block !important; 
 }
 
 .erotic-pharmacy-banner {

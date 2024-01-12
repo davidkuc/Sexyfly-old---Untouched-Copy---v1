@@ -3840,6 +3840,15 @@ $('#bdsm-show-all').on('click', function(e){
   e.preventDefault()
   $('#hidden-bdsm-categories-list').toggleClass("bdsm-categories-list-active");
   $('#bdsm-show-all').toggleClass("show-all-button-hidden");
+  $('#bdsm-close-all').toggleClass("show-all-button-active");
+  $('#bdsm-section-background').toggleClass("bdsm-section-bg-container-higher");
+});
+
+$('#bdsm-close-all').on('click', function(e){
+  e.preventDefault()
+  $('#hidden-bdsm-categories-list').toggleClass("bdsm-categories-list-active");
+  $('#bdsm-show-all').toggleClass("show-all-button-hidden");
+  $('#bdsm-close-all').toggleClass("show-all-button-active");
   $('#bdsm-section-background').toggleClass("bdsm-section-bg-container-higher");
 });
 
