@@ -45,7 +45,26 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 65px;
+          width: 60px;
+          position: relative;
+          right: -10px;
+
+          .header_top_bar_social_user_icon {
+            position: absolute;
+            top: -19px;
+            margin-right: 22px;
+          }
+
+          .header_top_bar_user_icon {
+            position: absolute;
+            left: -10px;
+          }
+          
+          .header_top_bar_chevron_down {
+            position: absolute;
+            top: 17px;
+            left: -10px;
+          }
         }
 
         .header_middle_content_quick_cart_wrapper{
@@ -119,11 +138,16 @@
     .header_inner_wrapper {
       .header_middle_content {
         padding: 5px 0px 20px 0px;
+
         .header_middle_content_inner_wrapper {
           padding: 0px 5px;
           justify-content: flex-start;
+
           .header_middle_content_logo {
-            margin-left: 0;
+            margin: 0px 40px;
+            position: relative;
+            left: -5px;
+
             img {
               max-width: 175px;
               max-height: 200px;

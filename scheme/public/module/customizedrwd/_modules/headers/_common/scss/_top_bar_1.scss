@@ -322,6 +322,8 @@ $top-bar-basket-icon-color: $top-bar-icon-color;
             }
           }
           &.user-menu {
+
+
             .helper-icon {
               .fa {
                 color: $top-bar-user-icon-color;
@@ -552,6 +554,8 @@ $top-bar-basket-icon-color: $top-bar-icon-color;
       .top_bar_item.right {
         ul.top_bar_item_list {
           li.top_bar_item_list_item{
+            padding: 0px 18px 0px 0px;
+
             .helper-text{
               display: none;
             }
@@ -596,20 +600,6 @@ $top-bar-basket-icon-color: $top-bar-icon-color;
         ul.top_bar_item_list {
           li.top_bar_item_list_item#top_bar_item_list_item_email {
             display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 400px) {
-  .top_bar {
-    .top_bar_inner_wrapper {
-      .top_bar_item.right {
-        ul.top_bar_item_list {
-          li.top_bar_item_list_item {
-            padding: 0px 18px 0px 0px;
           }
         }
       }
