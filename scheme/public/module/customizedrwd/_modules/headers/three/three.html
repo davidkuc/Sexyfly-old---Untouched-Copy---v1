@@ -48,20 +48,6 @@
 							</div>
 						</form>
 					</div>
-					{IF !$TURN_OFF_SALES}
-						<div cy-data="headerCart" class="header_middle_content_quick_cart_wrapper quick-cart">
-							<a href="/cart/" class="header_middle_content_quick_cart" rel="nofollow">
-								<div class="header_middle_content_quick_cart_price price"><span class="core_quickCartTotalPrice core_priceFormat" data-price="{$CART_SUM}">{$CART_SUM}</span></div>
-								<i class="fa fa-shopping-basket"></i>
-								<div class="header_middle_content_quick_cart_counter counter"><span class="core_quickCartAmount">{$CART_AMOUNT}</span></div>
-							</a>
-							{IF $CONTROLER != 'cart'}
-								<div class="dropdown dropdown-quick-cart">
-									{INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/quick-cart.html"}
-								</div>
-							{/IF}
-						</div>
-					{/IF}
 				</div>
 			</div>
 		</section>

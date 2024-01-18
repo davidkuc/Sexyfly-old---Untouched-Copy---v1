@@ -18,13 +18,13 @@
   }
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 1200px) {
   .swipe-panel {
     display: none;
   }
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 1199px) {
   .swipe-panel {
     display: block;
     position: fixed;
