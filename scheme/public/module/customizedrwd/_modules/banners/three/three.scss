@@ -341,9 +341,9 @@
 
       .bdsm-categories-list {
         position: relative;
-        left: -50%;
+        left: -161px;
         display: flex;
-        min-width: 325px;
+        width: 325px;
         flex-wrap: wrap;
         justify-content: center;
       }
@@ -351,10 +351,10 @@
       .bdsm-categories-list-hidden {
         display: none;
         position: relative;
-        left: -50%;
-        min-width: 325px;
         flex-wrap: wrap;
         justify-content: center;
+        width: 325px;
+        left: -161px;
       }
 
       .bdsm-category {
@@ -521,20 +521,20 @@
 
       .erotic-pharmacy-categories-list {
         position: relative;
-        left: -50%;
+        left: -161px;
         display: flex;
-        min-width: 325px;
+        width: 325px;
         flex-wrap: wrap;
         justify-content: center;
       }
 
       .erotic-pharmacy-categories-list-hidden {
         position: relative;
-        left: -50%;
+        left: -161px;
         display: none;
-        min-width: 325px;
+        width: 325px;
         flex-wrap: wrap;
-        justify-content: center;   
+        justify-content: center; 
       }
 
       .erotic-pharmacy-categories-list-active {
