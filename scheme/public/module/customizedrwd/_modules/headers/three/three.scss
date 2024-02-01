@@ -346,20 +346,6 @@
 
         }
       }
-
-      .header_search_button_desktop {
-
-        .header_search_button_icon_desktop {
-
-        }
-      }
-
-      .header_hamburger_button_desktop {
-
-        .header_hamburger_button_icon_desktop {
-
-        }
-      }
     }
   }
 }
@@ -380,27 +366,47 @@
   }
 }
 
-.header_searchbar_desktop {
+.header_right_bar_container {
   display: flex;
-  justify-content: center;
-  height: 65px;
+  padding-right: 53px;
+  height: 36px;
 
-  .header_middle_content_searchbox {
-    width: 500px;
+  .header_right_bar_button {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    padding: 9px 17px;
+    align-items: center;
+    color: #ed6082;
+    font-size: 1rem;
+    margin: 0px 5px;
+  }
 
-    .input-field {
-      border-radius: 30px;
+  .header_searchbar_desktop {
+    display: flex;
+    position: relative;
+    top: -5px;
+    margin-left: 5px;
+  
+    .header_middle_content_searchbox {
+      width: 270px;
+  
+      .input-field {
+        border-radius: 5px;
+      }
+    }
+  
+    .header_middle_content_quick_cart_wrapper {
+      margin-right: 25px;
+    }
+    
+    .header_middle_content_searchbox_button_wrapper {
+      position: relative;
+      z-index: 1;
+      top: -41px;
+      right: -241px;
     }
   }
-
-  .header_middle_content_quick_cart_wrapper {
-    margin-right: 25px;
-  }
   
-  .header_middle_content_searchbox_button_wrapper {
-    position: relative;
-    z-index: 1;
-    top: -41px;
-    right: -465px;
-  }
 }
+

@@ -128,21 +128,40 @@
         <a href="/" class="header_logo_desktop_container">
           <div class="header_logo_desktop">Sexyfly</div>
         </a>
-        <div class="header_info_2_desktop">
-          <img
-            class="header_info_2_bg_desktop"
-            src="/view/_custom/z_pn494/img/header/header_info_bg_desktop.png"
-          />
-          <img
-            class="header_info_2_circle_desktop"
-            src="/view/_custom/z_pn494/img/header/header_info_circle_desktop.png"
-          />
-          <img
-            class="header_info_2_icon_desktop"
-            src="/view/_custom/z_pn494/img/header/header_info_icon_percent_desktop.png"
-          />
-          <div class="header_info_2_text_desktop">
-            Promocja na wszystkie artykuły marki HighOnLove
+        <div class="header_right_bar_container">
+          <div class="header_right_bar_button">
+            PROMOCJE
+          </div>
+          <div class="header_right_bar_button">
+            NOWOŚCI
+          </div>
+          <div class="header_searchbar_desktop">
+            <div
+              class="header_middle_content_searchbox search-box {IF $TURN_OFF_SALES}search-box-right{/IF}"
+            >
+              <form method="GET" action="/category/#top">
+                <div class="header_middle_content_searchbox_input_wrapper">
+                  <input cy-data="headerSearch" class="input-field {IF
+                  $SEARCH_QUICK_ACTIVE}core_quickSearchAjax{/IF}" type="text" name="q"
+                  value="{$SEARCH_STRING}" placeholder="{$L_SEARCH_IN_SHOP}"
+                  autocomplete="off" {IF $DEBUG}data-ajax-blur="true"{/IF} /> {IF
+                  $SEARCH_DESC_ACTIVE}
+                  <input type="hidden" name="desc" value="1" />
+                  {/IF}
+                </div>
+                <div class="header_middle_content_searchbox_button_wrapper">
+                  <input
+                    type="image"
+                    src="/view/_custom/z_pn494/img/header/search-regular-24.png"
+                    width="24"
+                    height="24"
+                  />
+                  {IF $SEARCH_QUICK_ACTIVE} {INCLUDE
+                  file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/quick-search.html"}
+                  {/IF}
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -175,52 +194,7 @@
             src="/view/_custom/z_pn494/img/header/user-regular-24-black.png"
           />
         </div>
-        <div
-          class="header_search_button_desktop"
-          id="desktop-header-search-button"
-        >
-          <img
-            class="header_search_button_icon_desktop"
-            src="/view/_custom/z_pn494/img/header/search-regular-24-black.png"
-          />
-        </div>
-        <div
-          class="header_hamburger_button_desktop"
-          id="desktop-header-hamburger-button"
-        >
-          <img
-            class="header_hamburger_button_icon_desktop"
-            src="/view/_custom/z_pn494/img/header/menu-alt-right-regular-24-black.png"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="header_searchbar_desktop">
-      <div
-        class="header_middle_content_searchbox search-box {IF $TURN_OFF_SALES}search-box-right{/IF}"
-      >
-        <form method="GET" action="/category/#top">
-          <div class="header_middle_content_searchbox_input_wrapper">
-            <input cy-data="headerSearch" class="input-field {IF
-            $SEARCH_QUICK_ACTIVE}core_quickSearchAjax{/IF}" type="text" name="q"
-            value="{$SEARCH_STRING}" placeholder="{$L_SEARCH_IN_SHOP}"
-            autocomplete="off" {IF $DEBUG}data-ajax-blur="true"{/IF} /> {IF
-            $SEARCH_DESC_ACTIVE}
-            <input type="hidden" name="desc" value="1" />
-            {/IF}
-          </div>
-          <div class="header_middle_content_searchbox_button_wrapper">
-            <input
-              type="image"
-              src="/view/_custom/z_pn494/img/header/search-regular-24.png"
-              width="24"
-              height="24"
-            />
-            {IF $SEARCH_QUICK_ACTIVE} {INCLUDE
-            file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/quick-search.html"}
-            {/IF}
-          </div>
-        </form>
+        
       </div>
     </div>
   </div>
