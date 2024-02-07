@@ -343,7 +343,6 @@
       .header_user_button_desktop {
 
         .header_user_button_icon_desktop {
-
         }
       }
     }
@@ -410,3 +409,95 @@
   
 }
 
+.dropdown {
+  opacity: 0;
+  @include transition(all 0.2s ease-in-out 0s);
+  @include box-shadow(0 1px 3px rgba(0,0,0,2/10));
+  pointer-events: auto;
+  min-width: 150px;
+  backface-visibility: hidden;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 85%;
+  z-index: 1;
+  background: $dropdown-background-color;
+
+  &--is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 0;
+    left: 0;
+    height: 10px;
+  }
+  & .row {
+    & > [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  & ul {
+    padding: 5px 0 0;
+    display: inline-block;
+    width: 100%;
+    & li {
+      display: block;
+      width: 100%;
+      padding: 5px 15px;
+      & a {
+        color: $font-color;
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        font-size: $submenu-text-font-size;
+        font-weight: $submenu-text-font-weight;
+        line-height: $submenu-text-line-height;
+        cursor: pointer;
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+  & .cat-title {
+    padding: 15px 15px 0;
+    display: inline-block;
+    font-weight: $fw600;
+    text-align: left;
+    & .fa {
+      display: none;
+    }
+    & > a {
+      padding: 0;
+      color: $font-color;
+      display: inline-block;
+      width: 100%;
+      font-size: $submenu-title-font-size;
+      font-weight: $submenu-title-font-weight;
+      line-height: $submenu-title-line-height;
+      &:hover {
+        color: $mainColor;
+      }
+    }
+  }
+}
+
+.dropdownButton {
+  position: relative;
+}
+
+.dropdownButton::after {
+
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}

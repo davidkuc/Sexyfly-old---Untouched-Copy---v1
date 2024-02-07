@@ -3869,3 +3869,37 @@ $('#erotic-pharmacy-close-all').on('click', function(e){
   $('#erotic-pharmacy-background-container').toggleClass("erotic-pharmacy-bg-container-higher");
   $('#erotic-pharmacy-content-id').toggleClass("erotic-pharmacy-content-expand");
 });
+
+$('#erotic-pharmacy-close-all').on('click', function(e){
+  e.preventDefault()
+  $('#hidden-erotic-pharmacy-categories-list').toggleClass("erotic-pharmacy-categories-list-active");
+  $('#erotic-pharmacy-show-all').toggleClass("show-all-button-hidden");
+  $('#erotic-pharmacy-close-all').toggleClass("show-all-button-active");
+  $('#erotic-pharmacy-background-container').toggleClass("erotic-pharmacy-bg-container-higher");
+  $('#erotic-pharmacy-content-id').toggleClass("erotic-pharmacy-content-expand");
+});
+
+function toggleDropdown(dropdownId) {
+  var dropdown = document.getElementById(dropdownId);
+  dropdown.classList.toggle("dropdown--is-open");
+  console.log('1');
+}
+
+// Close the dropdown menus if the user clicks outside of them
+window.onclick = function(event) {
+  console.log('2');
+  console.log(event.target);
+  // element.classList.contains('class1')
+  // event.target.matches('.header_user_button_desktop'
+  if (!event.target.matches('.dropdownButton')) {
+    console.log('3');
+    var dropdowns = document.getElementsByClassName("dropdown");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('dropdown--is-open')) {
+        openDropdown.classList.remove('dropdown--is-open');
+      }
+    }
+  }
+}
