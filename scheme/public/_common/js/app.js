@@ -3887,12 +3887,7 @@ function toggleDropdown(dropdownId) {
 
 // Close the dropdown menus if the user clicks outside of them
 window.onclick = function(event) {
-  console.log('2');
-  console.log(event.target);
-  // element.classList.contains('class1')
-  // event.target.matches('.header_user_button_desktop'
   if (!event.target.matches('.dropdownButton')) {
-    console.log('3');
     var dropdowns = document.getElementsByClassName("dropdown");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
