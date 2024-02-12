@@ -3882,7 +3882,6 @@ $('#erotic-pharmacy-close-all').on('click', function(e){
 function toggleDropdown(dropdownId) {
   var dropdown = document.getElementById(dropdownId);
   dropdown.classList.toggle("dropdown--is-open");
-  console.log('1');
 }
 
 // Close the dropdown menus if the user clicks outside of them
