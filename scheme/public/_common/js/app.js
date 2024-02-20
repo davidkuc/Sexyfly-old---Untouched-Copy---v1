@@ -3825,6 +3825,28 @@ $(document).on('ready',function(){
   document.querySelectorAll('.smart-menu').forEach(menu => initSmartMenu(menu));
 });
 
+function configureOwlCarousel(mediaQuery) {
+  if (mediaQuery.matches) { 
+    $("#categoryCarousel").owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000
+  });
+  } else {
+    $("#categoryCarousel").owlCarousel({
+      items: 3,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 3000
+  });
+  }
+}
+
+var mediaQuery = window.matchMedia("(max-width: 520px)");
+
+configureOwlCarousel(mediaQuery);
+
 $('#bdsm-show-all').on('click', function(e){
   e.preventDefault()
   $('#hidden-bdsm-categories-list').toggleClass("bdsm-categories-list-active");
