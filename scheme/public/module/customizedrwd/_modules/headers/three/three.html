@@ -72,28 +72,6 @@
         </div>
       </div>
     </section>
-    <section class="menu-wrapper">
-      <div class="sky-container">
-        <div class="menu menu-calculate smart-menu" data-action="inline">
-          <ul class="header_bottom_content_list">
-            {INCLUDE
-            file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/main-menu.html"}
-            <li class="hamburger {IF $MENU_SHOW_TYPE == 'click'}click{/IF}">
-              <a href="#">
-                <i class="fa fa-bars"></i>
-              </a>
-              <div class="dropdown">
-                <div class="row">
-                  <div class="col-xs-12 smart-menu">
-                    <ul class="hambureger-elements"></ul>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
     <section id="sticky-header" data-sticky="{$IS_STICKY}">
       <div class="sky-container">
         {INCLUDE
@@ -168,14 +146,28 @@
     </div>
     <div class="header_user_section_desktop">
       <div class="header_user_section_content_desktop">
-        <div class="header_category_desktop">DLA NIEJ</div>
-        <div class="header_category_desktop">DLA NIEGO</div>
-        <div class="header_category_desktop">DLA PAR</div>
-        <div class="header_category_desktop">BIELIZNA & ODZIEŻ</div>
-        <div class="header_category_desktop">BDSM</div>
-        <div class="header_category_desktop">APTEKA EROTYCZNA</div>
-        <div class="header_category_desktop">PREZENT & IMPREZY</div>
-        <div class="header_category_desktop">POZOSTAŁE</div>
+        <section class="menu-wrapper">
+          <div class="sky-container">
+            <div class="menu menu-calculate smart-menu" data-action="inline">
+              <ul class="header_bottom_content_list">
+                {INCLUDE
+                file="./".$TEMPLATE."/scheme/public/module/customizedrwd/_modules/headers/_common/html/main-menu.html"}
+                <li class="hamburger {IF $MENU_SHOW_TYPE == 'click'}click{/IF}">
+                  <a href="#">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                  <div class="dropdown">
+                    <div class="row">
+                      <div class="col-xs-12 smart-menu">
+                        <ul class="hambureger-elements"></ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <div class="header_cart_cost_desktop">
           <img
             class="header_cart_cost_icon_desktop"

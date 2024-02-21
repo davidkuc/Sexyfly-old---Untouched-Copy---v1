@@ -295,11 +295,35 @@
           color: black;
         }
       }
+
+      @import "../_common/scss/_sub_header_quick_cart_1.scss";
     }
   }
 }
 
   .header_user_section_desktop {
+
+    .menu {
+      background-color: $backgroundColorTopMenu;
+
+      &.menu-calculate {
+      }
+
+      & ul.header_bottom_content_list {
+        position: relative;
+
+        li {
+          display: inline-block;
+          &.hamburger {
+            float: right;
+          }
+          @import "../_common/scss/_menu_dropdown_click_2.scss";
+          @import "../_common/scss/_menu_dropdown_single_1.scss";
+          @import "../_common/scss/_menu_dropdown_full_2.scss";
+          @import "../_common/scss/_hamburger_dropdown_1.scss";
+        }
+      }
+    }
 
     .header_cart_cost_desktop {
       background-color: #ed6082;
