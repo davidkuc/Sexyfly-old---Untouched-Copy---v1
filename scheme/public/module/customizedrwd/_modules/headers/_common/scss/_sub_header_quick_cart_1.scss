@@ -5,9 +5,12 @@
   }
   & .header_middle_content_quick_cart {
     text-decoration: none;
-    width: 100%;
     display: flex;
     justify-content: flex-end;
+    background-color: #ed6082;
+    border-radius: 15px;
+    padding: 2px 28px;
+    align-items: center;
     & .fa {
       font-size: 34px;
       color: $cartColor;
@@ -15,16 +18,13 @@
       bottom: 2px;
     }
     & .counter {
-      position: absolute;
-      right: -13px;
-      top: 15px;
       min-width: 24px;
       height: 24px;
       font-size: 13px;
       font-weight: $fw700;
-      background: $mainColor;
+      background: white;
       padding: 5px;
-      color: $primaryColor;
+      color: #ed6082;
       text-align: center;
       @include border-radius(12px);
       & span {
@@ -35,12 +35,9 @@
     & .price {
       left: 5px;
       white-space: pre;
-      font-size: 1.143rem; //16px;
-      font-weight: $fw500;
-      padding: 10px 20px 10px 0;
-      color: $mainColor;
-      min-width: 110px;
-      text-align: right;
+      font-size: 1rem;
+      color: white;
+      text-align: left;
     }
   }
   & .dropdown {

@@ -3890,6 +3890,15 @@ $('#erotic-pharmacy-close-all').on('click', function(e){
   $('#erotic-pharmacy-content-id').toggleClass("erotic-pharmacy-content-expand");
 });
 
+$(".quick-cart").hover(
+  function() {
+      $(".quick-cart").find('.dropdown').addClass("dropdown--is-open");
+  },
+  function() {
+      $(".quick-cart").find('.dropdown').removeClass("dropdown--is-open");
+  }
+);
+
 function toggleDropdown(dropdownId) {
   var dropdown = document.getElementById(dropdownId);
   dropdown.classList.toggle("dropdown--is-open");

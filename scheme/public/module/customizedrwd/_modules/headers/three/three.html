@@ -168,17 +168,20 @@
             </div>
           </div>
         </section>
-        <div class="header_cart_cost_desktop">
-          <img
-            class="header_cart_cost_icon_desktop"
-            src="/view/_custom/z_pn494/img/header/cart-regular-24-white.png"
-          />
-          <div
-            class="header_cart_cost_text_desktop value core_quickCartTotalPriceBrutto core_priceFormat"
-            data-price="{$CART_SUM}"
-          >
-            {$CART_SUM}
-          </div>
+        <div cy-data="headerCart" class="header_middle_content_quick_cart_wrapper quick-cart">
+          <a href="/cart/" class="header_middle_content_quick_cart" rel="nofollow">
+            <div class="header_middle_content_quick_cart_counter counter"><span class="core_quickCartAmount">{$CART_AMOUNT}</span></div>
+            <img
+              class="header_cart_cost_icon_desktop"
+              src="/view/_custom/z_pn494/img/header/cart-regular-24-white.png"
+            />
+            <div class="header_middle_content_quick_cart_price price"><span class="core_quickCartTotalPrice core_priceFormat" data-price="{$CART_SUM}">{$CART_SUM}</span></div>
+          </a>
+          {IF $CONTROLER != 'cart'}
+            <div class="dropdown dropdown-quick-cart">
+              {INCLUDE file="./".$TEMPLATE."/scheme/public/_common/html/quick-cart.html"}
+            </div>
+          {/IF}
         </div>
         <div onclick="toggleDropdown('desktop-header-user-dropdown')" class="header_user_button_desktop">
           <img
